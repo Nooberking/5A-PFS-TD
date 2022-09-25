@@ -23,7 +23,7 @@ bin/
 *.iml
 *.ipr
 out/
-!**/src/main/**/out/
+/src/main/**/out/
 !**/src/test/**/out/
 
 ### NetBeans ###
@@ -37,4 +37,5 @@ out/
 .vscode/
 
 ### Personnal properties ###
-application.yaml
+!**/application.yaml
+!**/db.changelog-master.yaml
