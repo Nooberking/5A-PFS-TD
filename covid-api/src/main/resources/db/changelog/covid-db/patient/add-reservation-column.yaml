@@ -13,3 +13,10 @@ databaseChangeLog:
                     nullable: false
                     foreignKeyName: fk_address_reservation
                     references: reservation(id)
+  - changeSet:
+      id: 28-09-2022-05
+      author: David(PC école)
+      changes:
+        - dropColumn:
+            tableName: PATIENT
+            columnName: reservation_id
