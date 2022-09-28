@@ -1,0 +1,26 @@
+databaseChangeLog:
+  - changeSet:
+      id: 28-09-2022-02
+      author: David (PC école)
+      changes:
+        - createTable:
+            tableName: PATIENT
+            columns:
+              - column:
+                  name: id
+                  type: int
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+              - column:
+                  name: firstName
+                  type: VARCHAR(100)
+              - column:
+                  name: lastName
+                  type: VARCHAR(100)
+              - column:
+                  name: mail
+                  type: VARCHAR(255)
+              - column:
+                  name: isVaccinated
+                  type: boolean

@@ -3,4 +3,4 @@ databaseChangeLog:
       - runningAs:
           username: postgres
   - includeAll:
-      path: db/changelog/center/
+      path: db/changelog/covid-db
