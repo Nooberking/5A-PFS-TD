@@ -51,6 +51,8 @@ public class ReservationService {
         return new ArrayList<>(reservationRepository.findByCenter(center));
     }
 
+    public void addReservation(Reservation reservation){reservationRepository.save(reservation);}
+
     public void deleteReservation(Reservation reservation){
         reservationRepository.delete(reservation);
     }

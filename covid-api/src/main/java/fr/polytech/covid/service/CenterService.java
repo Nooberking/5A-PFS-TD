@@ -22,6 +22,10 @@ public class CenterService {
         centerRepository.findAll().forEach(centers::add);
         return  centers;
     }
+    public List<Center> getCenters(String city){
+        if (city == null || city.equals("")) return getCenters();
+        return new ArrayList<>(centerRepository.findByCityContainsIgnoreCase(city));
+    }
 
     public Center getCenter(int id){
         return centerRepository.findById(id).orElse(null);
