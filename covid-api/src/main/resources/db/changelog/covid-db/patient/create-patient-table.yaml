@@ -2,6 +2,7 @@ databaseChangeLog:
   - changeSet:
       id: 28-09-2022-02
       author: David (PC école)
+      labels: creation
       changes:
         - createTable:
             tableName: PATIENT
@@ -14,10 +15,10 @@ databaseChangeLog:
                     primaryKey: true
               - column:
                   name: firstName
-                  type: VARCHAR(100)
+                  type: VARCHAR(255)
               - column:
                   name: lastName
-                  type: VARCHAR(100)
+                  type: VARCHAR(255)
               - column:
                   name: mail
                   type: VARCHAR(255)

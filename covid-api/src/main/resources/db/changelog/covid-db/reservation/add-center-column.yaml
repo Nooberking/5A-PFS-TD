@@ -2,6 +2,7 @@ databaseChangeLog:
   - changeSet:
       id: 28-09-2022-03
       author: David(PC école)
+      labels: foreign-keys
       changes:
         - addColumn:
             tableName: RESERVATION
