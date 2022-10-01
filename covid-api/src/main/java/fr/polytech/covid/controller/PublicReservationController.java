@@ -18,10 +18,12 @@ public class PublicReservationController {
             PatientService patientService) {
         this.reservationService = reservationService;
         this.patientService = patientService;
+
     }
 
     @GetMapping("/reservations")
     public List<Reservation> getReservations() { return reservationService.reservations();}
+
 
     @PostMapping("/reservation")
     public void addReservation(@RequestBody Reservation reservation){
