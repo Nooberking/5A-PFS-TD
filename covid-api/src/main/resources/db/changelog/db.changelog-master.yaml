@@ -25,3 +25,7 @@ databaseChangeLog:
   - include:
       labels: import-data
       file: db/changelog/covid-db/center/import-center-data.yaml
+  - include:
+      labels: import-data
+      file: db/changelog/covid-db/patient/add-test_user-entry.yaml
+

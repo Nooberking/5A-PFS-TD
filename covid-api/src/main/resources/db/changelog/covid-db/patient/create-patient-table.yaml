@@ -14,14 +14,14 @@ databaseChangeLog:
                   constraints:
                     primaryKey: true
               - column:
-                  name: firstName
+                  name: first_name
                   type: VARCHAR(255)
               - column:
-                  name: lastName
+                  name: last_name
                   type: VARCHAR(255)
               - column:
                   name: mail
                   type: VARCHAR(255)
               - column:
-                  name: isVaccinated
+                  name: is_vaccinated
                   type: boolean
