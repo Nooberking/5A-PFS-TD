@@ -5,7 +5,6 @@ import fr.polytech.covid.service.PatientService;
 import fr.polytech.covid.service.ReservationService;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 
 @RestController
 @RequestMapping("public")
@@ -20,9 +19,6 @@ public class PublicReservationController {
         this.patientService = patientService;
 
     }
-
-    @GetMapping("/reservations")
-    public List<Reservation> getReservations() { return reservationService.reservations();}
 
 
     @PostMapping("/reservation")
