@@ -25,6 +25,11 @@ public class PatientService {
        return new ArrayList<>(patientRepository.findByLastNameContainsIgnoreCase(lastName));
    }
 
+
+   public Patient addPatient(Patient patient){
+       return patientRepository.save(patient);
+   }
+
    public void confirmVaccination(int id){
        patientRepository.findById(id).ifPresent(this::confirmVaccination);
    }
