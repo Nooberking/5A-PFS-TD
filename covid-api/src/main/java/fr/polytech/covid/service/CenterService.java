@@ -6,7 +6,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Objects;
 
 @Service
 public class CenterService {
@@ -31,30 +30,11 @@ public class CenterService {
         return centerRepository.findById(id).orElse(null);
     }
 
-    public void addCenter(String name, String city){
-        Center center = new Center(name, city);
-        addCenter(center);
-    }
 
     public void addCenter(Center center) {
         centerRepository.save(center);
     }
 
-
-    public void updateCenter(int id, String name, String city){
-        Center center = this.getCenter(id);
-        updateCenter(center,name,city);
-    }
-
-    public void updateCenter(Center center,String name, String city){
-        if(center != null) {
-            name = (name == null || Objects.equals(name, "")) ? center.getName() : name ;
-            city = (city == null || Objects.equals(city, "")) ? center.getCity() : city ;
-            center.setName(name);
-            center.setCity(city);
-            updateCenter(center);
-        }
-    }
     public void updateCenter(Center center){
         centerRepository.save(center);
     }

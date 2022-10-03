@@ -15,24 +15,14 @@ public class PatientService {
         this.patientRepository = patientRepository;
     }
 
-   public List<Patient> getPatients() {
-        List<Patient> patients = new ArrayList<>();
-        patientRepository.findAll().forEach(patients::add);
-        return  patients;
-   }
-
    public List<Patient>getPatients( String lastName){
        return new ArrayList<>(patientRepository.findByLastNameContainsIgnoreCase(lastName));
    }
-
 
    public Patient addPatient(Patient patient){
        return patientRepository.save(patient);
    }
 
-   public void confirmVaccination(int id){
-       patientRepository.findById(id).ifPresent(this::confirmVaccination);
-   }
    public void confirmVaccination(Patient patient){
         patient.setVaccinated(true);
         patientRepository.save(patient);
