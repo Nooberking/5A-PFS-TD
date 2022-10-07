@@ -13,6 +13,6 @@ export class VaccinationCenterServiceService {
 
   getAllVaccinationCenter() : Observable<VaccinationCenter[]>{
   
-    return this.httpClient.get<VaccinationCenter[]>("/public/centers");
+    return this.httpClient.get<VaccinationCenter[]>("api/public/centers");
   }
 }
