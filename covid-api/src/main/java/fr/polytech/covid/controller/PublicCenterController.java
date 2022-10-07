@@ -2,7 +2,6 @@ package fr.polytech.covid.controller;
 
 import fr.polytech.covid.entity.Center;
 import fr.polytech.covid.service.CenterService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("public")
+@RequestMapping("api/public")
 public class PublicCenterController {
     private final CenterService centerService;
 

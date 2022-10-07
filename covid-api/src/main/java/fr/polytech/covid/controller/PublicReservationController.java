@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping("public")
+@RequestMapping("api/public")
 public class PublicReservationController {
     private final ReservationService reservationService;
     private final PatientService patientService;
