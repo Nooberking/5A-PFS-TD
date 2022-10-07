@@ -5,18 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c1424029-38e8-4f65-8ac4-49b4c0caa572" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/fr/polytech/covid/CovidApiApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/center/create-center-table.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/db/changelog/db.changelog-master.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/fr/polytech/covid/CovidApiApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,20 +40,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/david Polytech/OneDrive - Universite de Lorraine/Documents/5A/programation full stack/code TD/5A-PFS-TD",
-    "nodejs_interpreter_path": "node",
-    "settings.editor.selected.configurable": "gradle.compiler",
-    "spring.configuration.checksum": "902609d00c61781eacb33a3b05819ec9"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/reflo/OneDrive/Bureau/CodeEnVrac/5A-PFS-TD&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;node&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;gradle.compiler&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;902609d00c61781eacb33a3b05819ec9&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="CovidApiApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
-      <module name="covid-api.main" />
+      <option name="ACTIVE_PROFILES" />
+      <option name="ALTERNATIVE_JRE_PATH" value="corretto-17" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+      <module name="5A-PFS-TD" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="fr.polytech.covid.CovidApiApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -80,6 +72,8 @@
       <option name="presentableId" value="Default" />
       <updated>1664270841215</updated>
       <workItem from="1664270843145" duration="191000" />
+      <workItem from="1664540435071" duration="169000" />
+      <workItem from="1664540617392" duration="76000" />
     </task>
     <servers />
   </component>
