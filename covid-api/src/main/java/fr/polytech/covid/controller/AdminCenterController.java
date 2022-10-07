@@ -5,7 +5,9 @@ import fr.polytech.covid.service.CenterService;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
+
 @RequestMapping("api/admin")
+
 public class AdminCenterController {
 
     private final CenterService centerService;
