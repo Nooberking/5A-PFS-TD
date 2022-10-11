@@ -4,7 +4,8 @@ import { CommonModule } from '@angular/common';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButton, MatButtonModule } from '@angular/material/button';
+import { MatButtonModule } from '@angular/material/button';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -15,6 +16,7 @@ import { FooterComponent } from './components/footer/footer.component';
     CommonModule,
     MatToolbarModule,
     AppRoutingModule,
+    MatProgressBarModule,
     MatIconModule,
     MatButtonModule
   ],
@@ -22,6 +24,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatToolbarModule,
     MatIconModule,
     MatButtonModule,
+    MatProgressBarModule,
     HeaderComponent,
     FooterComponent
   ],

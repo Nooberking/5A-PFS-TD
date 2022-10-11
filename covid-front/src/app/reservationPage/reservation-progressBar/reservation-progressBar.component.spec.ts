@@ -3,21 +3,21 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
 
-import { ReservationPageComponent } from './reservationPage.component';
+import { ReservationProgressBarComponent } from './reservation-progressBar.component';
 
-describe('ReservationPageComponent', () => {
-  let component: ReservationPageComponent;
-  let fixture: ComponentFixture<ReservationPageComponent>;
+describe('ReservationProgressBarComponent', () => {
+  let component: ReservationProgressBarComponent;
+  let fixture: ComponentFixture<ReservationProgressBarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ReservationPageComponent ]
+      declarations: [ ReservationProgressBarComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ReservationPageComponent);
+    fixture = TestBed.createComponent(ReservationProgressBarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
