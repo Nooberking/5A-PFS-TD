@@ -1,3 +1,4 @@
+import { PercentagePipe } from './pipes/percentage.pipe';
 import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -26,11 +27,13 @@ import { FooterComponent } from './components/footer/footer.component';
     MatButtonModule,
     MatProgressBarModule,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PercentagePipe
   ],
   declarations: [
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    PercentagePipe
   ]
 })
 export class SharedModule { }

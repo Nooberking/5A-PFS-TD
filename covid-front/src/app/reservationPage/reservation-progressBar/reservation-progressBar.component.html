@@ -1,1 +1,10 @@
-<mat-progress-bar mode="buffer"></mat-progress-bar>
+<div id="progressBar-container">
+  <div class="progressBar">
+    <mat-progress-bar *ngFor="let i of iterations(8)" color="primary" [value]="progress"></mat-progress-bar>
+  </div>
+  <div class="progress-value">
+    {{progress | percentage}}
+  </div>
+</div>
+
+
