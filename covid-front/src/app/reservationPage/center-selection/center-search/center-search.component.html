@@ -1,2 +1,2 @@
-<app-center-searchBar [searchOption]="searchOption"></app-center-searchBar>
-<app-center-list></app-center-list>
+<app-center-searchBar [searchOption]="searchOption" (centersRequestEvent)="getCenters($event)"></app-center-searchBar>
+<app-center-list [centers]="centers" [loading]="loading"></app-center-list>

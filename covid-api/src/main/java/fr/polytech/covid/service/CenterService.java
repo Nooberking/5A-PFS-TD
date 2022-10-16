@@ -17,13 +17,16 @@ public class CenterService {
     }
 
     public List<Center> getCenters(){
-        List<Center> centers = new ArrayList<>();
-        centerRepository.findAll().forEach(centers::add);
-        return  centers;
+        return new ArrayList<>(centerRepository.findByOrderByNameAsc());
     }
     public List<Center> getCenters(String city){
         if (city == null || city.equals("")) return getCenters();
-        return new ArrayList<>(centerRepository.findByCityContainsIgnoreCase(city));
+        return new ArrayList<>(centerRepository.findByCityContainsIgnoreCaseOrderByNameAsc(city));
+    }
+
+    public List<Center> getCentersByName(String name){
+        if(name == null || name.equals("")) return getCenters();
+        return new ArrayList<>(centerRepository.findByNameContainsIgnoreCaseOrderByNameAsc(name));
     }
 
     public Center getCenter(int id){

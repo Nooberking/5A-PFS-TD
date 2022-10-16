@@ -1,3 +1,4 @@
+import { DateSelectionComponent } from './date-selection/date-selection.component';
 import { CenterListComponent } from './center-selection/center-search/center-list/center-list.component';
 import { CenterSearchBarComponent } from './center-selection/center-search/center-searchBar/center-searchBar.component';
 import { CenterSearchComponent } from './center-selection/center-search/center-search.component';
@@ -9,6 +10,7 @@ import { SharedModule } from './../shared/shared.module';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReservationPageComponent } from './reservationPage.component';
+import { CenterItemComponent } from './center-selection/center-search/center-list/center-item/center-item.component';
 
 @NgModule({
   imports: [
@@ -22,8 +24,10 @@ import { ReservationPageComponent } from './reservationPage.component';
     CenterSearchComponent,
     CenterSearchBarComponent,
     CenterListComponent,
+    CenterItemComponent,
     CsSearchOptionComponent,
-    ReservationProgressBarComponent
+    ReservationProgressBarComponent,
+    DateSelectionComponent
   ]
 })
 export class ReservationPageModule { }

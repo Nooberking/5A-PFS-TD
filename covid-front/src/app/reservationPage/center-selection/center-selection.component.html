@@ -3,5 +3,6 @@
 
   <app-cs-searchOption (searchChoice)="changeSelectedOption($event)" *ngIf="selectedOption == undefined"></app-cs-searchOption>
   <app-center-search
-  *ngIf="selectedOption != undefined" [searchOption]="selectedOption"></app-center-search>
+  *ngIf="selectedOption != undefined"
+  [searchOption]="selectedOption"></app-center-search>
 </div>

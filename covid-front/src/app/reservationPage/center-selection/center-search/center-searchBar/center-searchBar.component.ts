@@ -1,5 +1,5 @@
 import { CenterSearchEnum } from './../../CenterSearchEnum.enum';
-import { Component,Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-center-searchBar',
@@ -11,8 +11,13 @@ export class CenterSearchBarComponent implements OnChanges {
   @Input()
   searchOption?:  CenterSearchEnum;
 
+  @Output()
+  centersRequestEvent = new EventEmitter<string>();
+
   label?: string;
   example?: string;
+
+  request: string = "";
   constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void
@@ -29,6 +34,12 @@ export class CenterSearchBarComponent implements OnChanges {
     }
   }
 
+  requestAllCenters(): void {
+    this.request = "";
+    this.centersRequestEvent.emit("*allCenters*");
+  }
 
-
+  updateRequest(): void {
+    if(this.request != "") this.centersRequestEvent.emit(this.request);
+  }
 }

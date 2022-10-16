@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { VaccinationCenter } from './../../../../shared/dto/VaccinationCenter';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-center-list',
@@ -6,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./center-list.component.css']
 })
 export class CenterListComponent implements OnInit {
+
+  @Input()
+  centers?: VaccinationCenter[];
+  @Input()
+  loading?: boolean;
 
   constructor() { }
 

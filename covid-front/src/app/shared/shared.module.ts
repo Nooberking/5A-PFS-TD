@@ -1,6 +1,8 @@
 import { PercentagePipe } from './pipes/percentage.pipe';
 import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
@@ -12,13 +14,16 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatStepperModule } from '@angular/material/stepper';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatTableModule } from '@angular/material/table';
+import { MatListModule } from '@angular/material/list';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     CommonModule,
     MatToolbarModule,
@@ -28,10 +33,13 @@ import { FooterComponent } from './components/footer/footer.component';
     MatButtonModule,
     MatStepperModule,
     MatInputModule,
-    MatTableModule,
-    MatFormFieldModule
+    MatFormFieldModule,
+    MatListModule,
+    MatProgressSpinnerModule
   ],
   exports:[
+    FormsModule,
+    ReactiveFormsModule,
     HttpClientModule,
     MatToolbarModule,
     MatIconModule,
@@ -39,8 +47,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MatProgressBarModule,
     MatStepperModule,
     MatInputModule,
-    MatTableModule,
     MatFormFieldModule,
+    MatListModule,
+    MatProgressSpinnerModule,
 
     HeaderComponent,
     FooterComponent,
