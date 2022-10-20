@@ -1,0 +1,14 @@
+.container{
+  justify-content: center;
+  text-align: center;
+}
+
+.title-date{
+  text-align: center;
+  font-size: 2em;
+  color: #29398D;
+}
+
+.date-selector-container{
+  margin-top: 20px;
+}

@@ -1,3 +1,4 @@
+import { InformationSelectionComponent } from './information-selection/information-selection.component';
 import { DateSelectionComponent } from './date-selection/date-selection.component';
 import { CenterListComponent } from './center-selection/center-search/center-list/center-list.component';
 import { CenterSearchBarComponent } from './center-selection/center-search/center-searchBar/center-searchBar.component';
@@ -27,7 +28,8 @@ import { CenterItemComponent } from './center-selection/center-search/center-lis
     CenterItemComponent,
     CsSearchOptionComponent,
     ReservationProgressBarComponent,
-    DateSelectionComponent
+    DateSelectionComponent,
+    InformationSelectionComponent
   ]
 })
 export class ReservationPageModule { }

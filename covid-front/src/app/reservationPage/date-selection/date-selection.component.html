@@ -1,3 +1,12 @@
-<p>
-  {{reservation?.center ? reservation?.center?.name:''}}
-</p>
+<div class="container">
+  <h2 class="title-date">Selectionner une date</h2>
+  <mat-form-field class="date-selector-container" appearance="fill">
+    <mat-label>Choisir une date</mat-label>
+    <input matInput [min]="today" [matDatepickerFilter]="filterDate" (dateChange)="changeDate($event)" (dateInput)="enableConfirm($event)" [matDatepicker]="picker">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <br/>
+  <button mat-raised-button color="primary" (click)="selectDate()" [disabled]="disabled" matStepperNext>Confirmer la date</button>
+</div>
+

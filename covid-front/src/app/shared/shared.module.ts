@@ -16,6 +16,9 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
@@ -35,7 +38,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MatInputModule,
     MatFormFieldModule,
     MatListModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   exports:[
     FormsModule,
@@ -50,6 +55,8 @@ import { FooterComponent } from './components/footer/footer.component';
     MatFormFieldModule,
     MatListModule,
     MatProgressSpinnerModule,
+    MatDatepickerModule,
+    MatNativeDateModule,
 
     HeaderComponent,
     FooterComponent,
