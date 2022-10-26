@@ -12,3 +12,8 @@
 .date-selector-container{
   margin-top: 20px;
 }
+
+.date-confirm-button{
+  margin-top: 10px;
+  margin-right: 10px;
+}

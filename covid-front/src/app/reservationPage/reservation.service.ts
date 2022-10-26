@@ -13,6 +13,9 @@ export class ReservationService {
   private reservationStream = new BehaviorSubject<Reservation>({});
   currentReservation = this.reservationStream.asObservable();
 
+  private reservationStateStream = new BehaviorSubject<boolean[]>([false, false, false, false]);
+  currentReservationState = this.reservationStateStream. asObservable();
+
 
   constructor(private httpClient: HttpClient,) { }
 
@@ -37,13 +40,7 @@ export class ReservationService {
   }
 
   addPatient(patient: Patient): Observable<Patient>{
-    return this.httpClient.post<Patient>("api/public/patient",{
-      params:{
-        "firstName": patient.firstName,
-        "lastName": patient.lastName,
-        "mail": patient.mail
-      }
-    });
+    return this.httpClient.post<Patient>("api/public/patient",patient);
   }
 
   updateReservationCenter(center: VaccinationCenter){
@@ -51,7 +48,7 @@ export class ReservationService {
     this.currentReservation.subscribe(resa => {
       reservation = resa;
       reservation.center = center;
-    }).unsubscribe();
+    });
     this.reservationStream.next(reservation);
   }
 
@@ -60,19 +57,38 @@ export class ReservationService {
     this.currentReservation.subscribe(resa =>{
       reservation = resa;
       reservation.date = date;
-    }).unsubscribe();
+    });
     this.reservationStream.next(reservation);
   }
 
   updateReservationPatient(patient: Patient){
     let reservation: Reservation= {};
-    this.addPatient(patient).subscribe(registeredPatient => {
-      this.currentReservation.subscribe(resa => {
-        reservation = resa;
-        reservation.patient = registeredPatient;
-      }).unsubscribe();
-    }).unsubscribe();
+    this.currentReservation.subscribe(resa =>{
+      reservation = resa;
+      reservation.patient = patient;
+    });
     this.reservationStream.next(reservation);
   }
-  
+
+  updateReservationState(state: number){
+    if (state>= 0 && state < 4){
+      let reservationState:boolean[] = [];
+      this.currentReservationState.subscribe( resaState=> {
+        reservationState = resaState;
+        reservationState[state] = true;
+    });
+    this.reservationStateStream.next(reservationState);
+    }
+  }
+
+  saveReservation(reservation: Reservation){
+    if(reservation.patient) this.addPatient(reservation.patient).subscribe(patient =>{
+      reservation.patient = patient;
+      this.httpClient.post<Reservation>("api/public/reservation",reservation).subscribe(result =>{
+        this.updateReservationState(3);
+        
+      });
+        });
+  }
+
 }

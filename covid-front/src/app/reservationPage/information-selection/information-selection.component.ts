@@ -18,6 +18,8 @@ export class InformationSelectionComponent implements OnInit {
     "lastName": "",
     "mail": ""
   };
+  alreadyPassed: boolean = false;
+
 
 
   constructor(private reservationService: ReservationService) { }
@@ -30,6 +32,10 @@ export class InformationSelectionComponent implements OnInit {
     this.patient.lastName = this.nameFormControl.value;
     this.patient.mail = this.emailFormControl.value;
     this.reservationService.updateReservationPatient(this.patient);
+    if(!this.alreadyPassed){
+      this.reservationService.updateReservationState(2);
+      this.alreadyPassed = true; 
+    }
   }
 
 }

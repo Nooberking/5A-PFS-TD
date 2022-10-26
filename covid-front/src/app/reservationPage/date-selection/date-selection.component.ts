@@ -1,3 +1,4 @@
+import { FormControl, Validators } from '@angular/forms';
 import { MatDatepickerInputEvent } from '@angular/material/datepicker';
 import { ReservationService } from './../reservation.service';
 import { Reservation } from './../../shared/dto/Reservation';
@@ -13,7 +14,9 @@ export class DateSelectionComponent implements OnInit, OnDestroy {
   subscription?: Subscription;
   date?: Date;
   today: Date = new Date();
+  dateFormControl: FormControl = new FormControl('',[Validators.required]);
   disabled: boolean = true;
+  alreadyPassed: boolean = false;
 
   enableConfirm(event: any) : void{
      this.disabled = !event.value;
@@ -36,6 +39,10 @@ export class DateSelectionComponent implements OnInit, OnDestroy {
 
   selectDate(){
     if(this.date)this.reservationService.updateReservationDate(this.date);
+    if(!this.alreadyPassed){
+      this.reservationService.updateReservationState(1);
+      this.alreadyPassed = true;
+    }
   }
 
 

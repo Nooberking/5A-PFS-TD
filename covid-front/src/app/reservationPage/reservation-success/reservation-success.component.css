@@ -1,0 +1,19 @@
+#success-container{
+  text-align: center;
+  font-size: 1em;
+  color:#29398D;
+}
+#success-container div {
+  font-size: 2em;
+  line-height: 30px;
+}
+
+.mat-icon{
+  margin-left: -20vw;
+  font-size: 20em;
+  color: green;
+}
+
+#home-button {
+  margin-top: 10px;
+}

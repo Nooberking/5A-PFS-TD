@@ -3,7 +3,7 @@ import { VaccinationCenter } from './../../../shared/dto/VaccinationCenter';
 import { ReservationService } from './../../reservation.service';
 
 import { CenterSearchEnum } from './../CenterSearchEnum.enum';
-import { Component, Input, SimpleChanges, OnInit } from '@angular/core';
+import { Component, Input, SimpleChanges, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-center-search',
@@ -13,6 +13,9 @@ import { Component, Input, SimpleChanges, OnInit } from '@angular/core';
 export class CenterSearchComponent {
   @Input()
   searchOption?: CenterSearchEnum;
+
+  @Output()
+  searchOptionEvent: EventEmitter<CenterSearchEnum> = new EventEmitter();
 
   centers?: VaccinationCenter[];
   loading: boolean = false;
@@ -35,5 +38,8 @@ export class CenterSearchComponent {
         this.centers = centers;
       });
 
+  }
+  undoSearchSelect() {
+    this.searchOptionEvent.emit(undefined);
   }
 }

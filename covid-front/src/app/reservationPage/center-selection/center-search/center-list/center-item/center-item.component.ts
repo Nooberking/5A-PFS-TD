@@ -12,6 +12,7 @@ export class CenterItemComponent implements OnInit {
   center!: VaccinationCenter;
 
   buttonConfirm: boolean = false;
+  alreadyPassed = false;
 
   constructor(private reservationService: ReservationService) { }
 
@@ -23,6 +24,10 @@ export class CenterItemComponent implements OnInit {
   }
 
   selectCenter():void{
-    this.reservationService.updateReservationCenter(this.center); 
+    this.reservationService.updateReservationCenter(this.center);
+    if(!this.alreadyPassed){
+      this.reservationService.updateReservationState(0);
+      this.alreadyPassed = true;
+    }
   }
 }

@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { ReservationService } from './../reservation.service';
+import { Subscription } from 'rxjs';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-reservation-progressBar',
@@ -7,12 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ReservationProgressBarComponent implements OnInit {
 
-  progress?: number;
+  @Input()
+  progress: number = 0;
+  subscription?: Subscription;
 
-  constructor() { }
+  constructor(private reservationService: ReservationService) { }
 
   ngOnInit() {
-    this.progress = 0;
+
   }
 
   /**

@@ -1,3 +1,4 @@
+import { ToFillPipe } from './pipes/toFill.pipe';
 import { PercentagePipe } from './pipes/percentage.pipe';
 import { AppRoutingModule } from './../app-routing.module';
 import { NgModule } from '@angular/core';
@@ -61,13 +62,15 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     FooterComponent,
 
-    PercentagePipe
+    PercentagePipe,
+    ToFillPipe
   ],
   declarations: [
     HeaderComponent,
     FooterComponent,
 
-    PercentagePipe
+    PercentagePipe,
+    ToFillPipe
   ]
 })
 export class SharedModule { }

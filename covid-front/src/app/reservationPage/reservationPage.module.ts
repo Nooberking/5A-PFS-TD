@@ -1,3 +1,5 @@
+import { ReservationSuccessComponent } from './reservation-success/reservation-success.component';
+import { ConfirmSelectionComponent } from './confirm-selection/confirm-selection.component';
 import { InformationSelectionComponent } from './information-selection/information-selection.component';
 import { DateSelectionComponent } from './date-selection/date-selection.component';
 import { CenterListComponent } from './center-selection/center-search/center-list/center-list.component';
@@ -29,7 +31,9 @@ import { CenterItemComponent } from './center-selection/center-search/center-lis
     CsSearchOptionComponent,
     ReservationProgressBarComponent,
     DateSelectionComponent,
-    InformationSelectionComponent
+    InformationSelectionComponent,
+    ConfirmSelectionComponent,
+    ReservationSuccessComponent
   ]
 })
 export class ReservationPageModule { }

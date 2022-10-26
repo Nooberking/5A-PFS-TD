@@ -6,11 +6,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./reservation-stepper.component.css']
 })
 export class ReservationStepperComponent implements OnInit {
-  duration: number = 10000; 
+  duration: number = 10000;
 
   constructor() { }
 
   ngOnInit() {
   }
+
 
 }
