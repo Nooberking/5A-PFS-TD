@@ -81,12 +81,18 @@ export class ReservationService {
     }
   }
 
+  resetReservation(){
+    this.reservationStream.complete();
+    this.reservationStateStream.complete();
+    
+  }
+
   saveReservation(reservation: Reservation){
     if(reservation.patient) this.addPatient(reservation.patient).subscribe(patient =>{
       reservation.patient = patient;
       this.httpClient.post<Reservation>("api/public/reservation",reservation).subscribe(result =>{
         this.updateReservationState(3);
-        
+
       });
         });
   }

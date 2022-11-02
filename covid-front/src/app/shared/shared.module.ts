@@ -1,3 +1,4 @@
+import { CanDesactivateGuard } from './guards/CanDesactivateGuard';
 import { ToFillPipe } from './pipes/toFill.pipe';
 import { PercentagePipe } from './pipes/percentage.pipe';
 import { AppRoutingModule } from './../app-routing.module';
@@ -63,7 +64,8 @@ import { FooterComponent } from './components/footer/footer.component';
     FooterComponent,
 
     PercentagePipe,
-    ToFillPipe
+    ToFillPipe,
+
   ],
   declarations: [
     HeaderComponent,
