@@ -8,10 +8,14 @@
   font-size: 1.3em;
 }
 
+.home-icon{
+  margin-top: 0.4em;
+  margin-right: 1em;
+}
+
 #header-home-icon {
   font-size: 2.6em;
-  margin-top: -0.6em;
-  margin-right: 0.5em;
+
   transition: color .3s ease-in-out;
 }
 #header-home-icon:hover  {

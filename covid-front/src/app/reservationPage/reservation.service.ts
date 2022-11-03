@@ -1,7 +1,7 @@
 import { Patient } from './../shared/dto/Patient';
 import { Reservation } from './../shared/dto/Reservation';
 import { VaccinationCenter } from './../shared/dto/VaccinationCenter';
-import { Observable, BehaviorSubject } from 'rxjs';
+import { Observable, BehaviorSubject, Subscription } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -16,6 +16,7 @@ export class ReservationService {
   private reservationStateStream = new BehaviorSubject<boolean[]>([false, false, false, false]);
   currentReservationState = this.reservationStateStream. asObservable();
 
+  subs : Subscription[] = [];
 
   constructor(private httpClient: HttpClient,) { }
 
@@ -45,46 +46,46 @@ export class ReservationService {
 
   updateReservationCenter(center: VaccinationCenter){
     let reservation: Reservation = {};
-    this.currentReservation.subscribe(resa => {
+    this.subs.push(this.currentReservation.subscribe(resa => {
       reservation = resa;
       reservation.center = center;
-    });
+    }));
     this.reservationStream.next(reservation);
   }
 
   updateReservationDate(date: Date){
     let reservation: Reservation = {};
-    this.currentReservation.subscribe(resa =>{
+    this.subs.push(this.currentReservation.subscribe(resa =>{
       reservation = resa;
       reservation.date = date;
-    });
+    }));
     this.reservationStream.next(reservation);
   }
 
   updateReservationPatient(patient: Patient){
     let reservation: Reservation= {};
-    this.currentReservation.subscribe(resa =>{
+    this.subs.push(this.currentReservation.subscribe(resa =>{
       reservation = resa;
       reservation.patient = patient;
-    });
+    }));
     this.reservationStream.next(reservation);
   }
 
   updateReservationState(state: number){
     if (state>= 0 && state < 4){
       let reservationState:boolean[] = [];
-      this.currentReservationState.subscribe( resaState=> {
+      this.subs.push(this.currentReservationState.subscribe( resaState=> {
         reservationState = resaState;
         reservationState[state] = true;
-    });
+    }));
     this.reservationStateStream.next(reservationState);
     }
   }
 
   resetReservation(){
-    this.reservationStream.complete();
-    this.reservationStateStream.complete();
-    
+    this.subs.forEach(sub => {sub.unsubscribe()});
+    this.reservationStream.next({});
+    this.reservationStateStream.next([false, false, false, false]);
   }
 
   saveReservation(reservation: Reservation){
@@ -92,7 +93,6 @@ export class ReservationService {
       reservation.patient = patient;
       this.httpClient.post<Reservation>("api/public/reservation",reservation).subscribe(result =>{
         this.updateReservationState(3);
-
       });
         });
   }

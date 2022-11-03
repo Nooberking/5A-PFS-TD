@@ -1,8 +1,8 @@
 import { UnsavedChanges } from './../shared/guards/CanDesactivateGuard';
-import { NavigationStart, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { ReservationService } from './reservation.service';
 import { Subscription } from 'rxjs';
-import { Component, OnInit, OnDestroy, HostListener, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-reservationPage',
@@ -46,8 +46,9 @@ export class ReservationPageComponent implements OnInit, OnDestroy, UnsavedChang
   }
 
   unsavedChanges(): boolean {
+
+    if (this.progress == 0) return true;
     this.reservationService.resetReservation();
-    if (this.progress == 0) return true
     return this.progress!=100 &&  confirm("Vous avez des changements non sauvegardés ! Si vous quittez, vos changements seront perdus.") ;
   }
   ngOnDestroy(): void {
