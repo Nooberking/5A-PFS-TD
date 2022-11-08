@@ -1,4 +1,3 @@
-import { CanDesactivateGuard } from './guards/CanDesactivateGuard';
 import { ToFillPipe } from './pipes/toFill.pipe';
 import { PercentagePipe } from './pipes/percentage.pipe';
 import { AppRoutingModule } from './../app-routing.module';

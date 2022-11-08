@@ -1,6 +1,6 @@
 import { ReservationService } from './../reservation.service';
 import { Reservation } from './../../shared/dto/Reservation';
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-confirm-selection',

@@ -18,7 +18,6 @@ export class CenterSearchBarComponent implements OnChanges {
   example?: string;
 
   request: string = "";
-  constructor() { }
 
   ngOnChanges(changes: SimpleChanges): void
   {

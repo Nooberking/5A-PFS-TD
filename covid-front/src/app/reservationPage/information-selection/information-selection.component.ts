@@ -8,7 +8,7 @@ import { FormControl, Validators } from '@angular/forms';
   templateUrl: './information-selection.component.html',
   styleUrls: ['./information-selection.component.css']
 })
-export class InformationSelectionComponent implements OnInit {
+export class InformationSelectionComponent {
 
   emailFormControl: FormControl = new FormControl('', [Validators.required, Validators.email]);
   firstnameFormControl: FormControl = new FormControl('',[Validators.required]);
@@ -24,8 +24,6 @@ export class InformationSelectionComponent implements OnInit {
 
   constructor(private reservationService: ReservationService) { }
 
-  ngOnInit() {
-  }
 
   onConfirmInfos(){
     this.patient.firstName = this.firstnameFormControl.value
@@ -34,7 +32,7 @@ export class InformationSelectionComponent implements OnInit {
     this.reservationService.updateReservationPatient(this.patient);
     if(!this.alreadyPassed){
       this.reservationService.updateReservationState(2);
-      this.alreadyPassed = true; 
+      this.alreadyPassed = true;
     }
   }
 

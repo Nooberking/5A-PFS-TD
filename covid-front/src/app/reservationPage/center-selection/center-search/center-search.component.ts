@@ -1,16 +1,16 @@
-import { observable, Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { VaccinationCenter } from './../../../shared/dto/VaccinationCenter';
 import { ReservationService } from './../../reservation.service';
 
 import { CenterSearchEnum } from './../CenterSearchEnum.enum';
-import { Component, Input, SimpleChanges, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-center-search',
   templateUrl: './center-search.component.html',
   styleUrls: ['./center-search.component.css']
 })
-export class CenterSearchComponent {
+export class CenterSearchComponent implements OnDestroy {
   @Input()
   searchOption?: CenterSearchEnum;
 
@@ -19,6 +19,8 @@ export class CenterSearchComponent {
 
   centers?: VaccinationCenter[];
   loading: boolean = false;
+
+  sub?:Subscription;
 
   constructor(private reservationService: ReservationService) { }
 
@@ -32,7 +34,7 @@ export class CenterSearchComponent {
   getCenters(request: string): void {
     this.loading = true;
     let centersObservable = this.selectObservableForCenters(request);
-    centersObservable.subscribe(centers =>
+    this.sub = centersObservable.subscribe(centers =>
       {
         this.loading = false;
         this.centers = centers;
@@ -41,5 +43,10 @@ export class CenterSearchComponent {
   }
   undoSearchSelect() {
     this.searchOptionEvent.emit(undefined);
+  }
+
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+
   }
 }

@@ -1,5 +1,4 @@
 import { UnsavedChanges } from './../shared/guards/CanDesactivateGuard';
-import { Router } from '@angular/router';
 import { ReservationService } from './reservation.service';
 import { Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';
@@ -15,8 +14,7 @@ export class ReservationPageComponent implements OnInit, OnDestroy, UnsavedChang
   subscriptions: Subscription[] = [];
 
   constructor(
-    private reservationService: ReservationService,
-    private router: Router) { }
+    private reservationService: ReservationService) { }
 
   ngOnInit() {
 

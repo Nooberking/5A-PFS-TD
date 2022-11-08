@@ -1,13 +1,13 @@
 import { ReservationService } from './../../../../reservation.service';
 import { VaccinationCenter } from './../../../../../shared/dto/VaccinationCenter';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-center-item',
   templateUrl: './center-item.component.html',
   styleUrls: ['./center-item.component.css']
 })
-export class CenterItemComponent implements OnInit {
+export class CenterItemComponent {
   @Input()
   center!: VaccinationCenter;
 
@@ -15,9 +15,6 @@ export class CenterItemComponent implements OnInit {
   alreadyPassed = false;
 
   constructor(private reservationService: ReservationService) { }
-
-  ngOnInit() {
-  }
 
   confirmButton(): void{
     this.buttonConfirm = !this.buttonConfirm;

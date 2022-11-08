@@ -1,21 +1,16 @@
 import { VaccinationCenter } from './../../../../shared/dto/VaccinationCenter';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-center-list',
   templateUrl: './center-list.component.html',
   styleUrls: ['./center-list.component.css']
 })
-export class CenterListComponent implements OnInit {
+export class CenterListComponent {
 
   @Input()
   centers?: VaccinationCenter[];
   @Input()
   loading?: boolean;
-
-  constructor() { }
-
-  ngOnInit() {
-  }
 
 }

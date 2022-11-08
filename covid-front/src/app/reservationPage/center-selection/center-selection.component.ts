@@ -1,6 +1,5 @@
 import { VaccinationCenter } from './../../shared/dto/VaccinationCenter';
-import { ReservationService } from './../reservation.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CenterSearchEnum } from './CenterSearchEnum.enum';
 
 @Component({
@@ -8,15 +7,10 @@ import { CenterSearchEnum } from './CenterSearchEnum.enum';
   templateUrl: './center-selection.component.html',
   styleUrls: ['./center-selection.component.css']
 })
-export class CenterSelectionComponent implements OnInit{
+export class CenterSelectionComponent {
 
   selectedOption?: CenterSearchEnum ;
   centers: VaccinationCenter[] = [];
-
-  constructor(private reservationService: ReservationService) { }
-  ngOnInit(): void {
-  }
-
 
 
 
