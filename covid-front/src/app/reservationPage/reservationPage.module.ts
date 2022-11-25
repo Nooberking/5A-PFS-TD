@@ -15,6 +15,12 @@ import { CommonModule } from '@angular/common';
 import { ReservationPageComponent } from './reservationPage.component';
 import { CenterItemComponent } from './center-selection/center-search/center-list/center-item/center-item.component';
 
+/**
+ * Module that contains the reservation process.
+ *
+ * @export
+ * @class ReservationPageModule
+ */
 @NgModule({
   imports: [
     CommonModule,

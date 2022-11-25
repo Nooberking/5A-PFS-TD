@@ -1,6 +1,12 @@
-import { Subscription } from 'rxjs';
 import { Component, Input } from '@angular/core';
 
+/**
+ * Component for the proggression bar that represent the progression on
+ * on the reservation process.
+ *
+ * @export
+ * @class ReservationProgressBarComponent
+ */
 @Component({
   selector: 'app-reservation-progressBar',
   templateUrl: './reservation-progressBar.component.html',
@@ -8,9 +14,14 @@ import { Component, Input } from '@angular/core';
 })
 export class ReservationProgressBarComponent {
 
+  /**
+   * Progression rate.
+   *
+   * @type {number}
+   * @memberof ReservationProgressBarComponent
+   */
   @Input()
   progress: number = 0;
-  subscription?: Subscription;
 
 
   /**

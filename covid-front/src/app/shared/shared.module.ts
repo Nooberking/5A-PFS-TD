@@ -24,6 +24,12 @@ import { MatNativeDateModule } from '@angular/material/core';
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
 
+/**
+ *
+ * Module for shared items to all components.
+ * @export
+ * @class SharedModule
+ */
 @NgModule({
   imports: [
     FormsModule,
