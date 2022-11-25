@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c1424029-38e8-4f65-8ac4-49b4c0caa572" name="Changes" comment="">
+    <list default="true" id="54f9c020-4171-49c4-aab8-c07128d2a40a" name="Changes" comment="#Liquid create cener table">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,6 +19,16 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="PR" />
+      </list>
+    </option>
   </component>
   <component name="JpbToolWindowState">
     <option name="myId2FirstActivated">
@@ -66,7 +76,7 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="c1424029-38e8-4f65-8ac4-49b4c0caa572" name="Changes" comment="" />
+      <changelist id="54f9c020-4171-49c4-aab8-c07128d2a40a" name="Changes" comment="#Liquid create cener table" />
       <created>1664270841215</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
