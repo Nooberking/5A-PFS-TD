@@ -19,9 +19,12 @@ public class PublicCenterController {
     }
 
     @GetMapping("/centers")
-    public List<Center> getCenters(@RequestParam(required = false) String city){
-        return centerService.getCenters(city);
+    public List<Center> getCenters(@RequestParam(required = false) String city,
+                                   @RequestParam(required = false) String name ){
+        if(city != null ) return centerService.getCenters(city);
+        else return centerService.getCentersByName(name);
     }
+
 
     @GetMapping("/center")
     public Center getCenter(@RequestParam int id){
