@@ -20,6 +20,9 @@ databaseChangeLog:
                   name: last_name
                   type: VARCHAR(255)
               - column:
+                  name: phone_number
+                  type: VARCHAR(15)
+              - column:
                   name: mail
                   type: VARCHAR(255)
               - column:

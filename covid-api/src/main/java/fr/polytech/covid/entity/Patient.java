@@ -10,6 +10,7 @@ public class Patient {
     private int id;
     private String firstName;
     private String lastName;
+    private String phoneNumber;
     private String mail;
     private boolean isVaccinated;
 
@@ -17,9 +18,10 @@ public class Patient {
     public Patient() {
     }
 
-    public Patient(String firstName, String lastName, String mail) {
+    public Patient(String firstName, String lastName, String phoneNumber, String mail) {
         this.firstName = firstName;
         this.lastName = lastName;
+        this.phoneNumber = phoneNumber;
         this.mail = mail;
         this.isVaccinated = false;
     }
@@ -50,6 +52,14 @@ public class Patient {
 
     public void setMail(String mail) {
         this.mail = mail;
+    }
+
+    public String getPhoneNumber() {
+        return phoneNumber;
+    }
+
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
     }
 
     public boolean isVaccinated() {
