@@ -1,0 +1,24 @@
+databaseChangeLog:
+  - changeSet:
+      id: 29-11-2022-01
+      author: David(PC école)
+      labels: import-data
+      changes:
+        - insert:
+            tableName: ROLE
+            columns:
+              - column:
+                  name: name
+                  value: SUPER_ADMIN
+        - insert:
+            tableName: ROLE
+            columns:
+              - column:
+                  name: name
+                  value: ADMIN
+        - insert:
+            tableName: ROLE
+            columns:
+              - column:
+                  name: name
+                  value: DOCTOR
