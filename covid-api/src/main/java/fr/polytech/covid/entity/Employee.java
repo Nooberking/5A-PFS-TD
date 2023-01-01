@@ -1,7 +1,6 @@
 package fr.polytech.covid.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class Employee {
@@ -19,14 +18,12 @@ public class Employee {
     private String password;
 
 
-    @ManyToMany(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinTable(
             name = "employees_roles",
             joinColumns = @JoinColumn(
-                    name = "user_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+                    name = "user_id", referencedColumnName = "id"))
+    private Role role;
 
     public Employee() {
     }
@@ -75,12 +72,12 @@ public class Employee {
         this.center = center;
     }
 
-    public Collection<Role> getRoles() {
-        return roles;
+    public Role getRole() {
+        return role;
     }
 
-    public void setRoles(Collection<Role> roles) {
-        this.roles = roles;
+    public void setRole(Role role) {
+        this.role = role;
     }
 
     public String getPassword() {

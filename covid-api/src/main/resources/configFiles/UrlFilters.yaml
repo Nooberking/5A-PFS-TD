@@ -1,7 +1,34 @@
+ ### Public access
+
 public :
   ["/api/public/**"]
+
+ ### Admin access
+
+# Require Authentication
 restricted :
   ["/api/admin/**"]
+
+# Require Role
+doctor_get_restricted :
+    ["/api/admin/patients"]
+doctor_put_restricted :
+    ["/api/admin/patient"]
+admin_restricted :
+    ["/api/admin/doctor"]
+admin_get_restricted :
+    ["/api/admin/reservationsByCenter"]
+admin_delete_restricted :
+    ["/api/admin/reservation"]
+superAdmin_restricted :
+    [
+        "/api/admin/center",
+        "/api/admin/employees",
+        "/api/admin/employee",
+        "/api/admin/administrators"
+    ]
+
+### Bucket limited
 bucket_limited :
   [
     "/api/admin/patients",

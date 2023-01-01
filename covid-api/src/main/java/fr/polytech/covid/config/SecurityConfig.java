@@ -26,7 +26,12 @@ public class SecurityConfig {
         http
                 .authorizeHttpRequests((authz) -> authz
                         .mvcMatchers(filters.getUrl("public")).permitAll()
-                        .antMatchers(HttpMethod.GET, filters.getUrl("restricted")).hasAuthority("ADMIN")
+                        .mvcMatchers(HttpMethod.GET, filters.getUrl("doctor_get_restricted")).hasAuthority("DOCTOR")
+                        .mvcMatchers(HttpMethod.PUT, filters.getUrl("doctor_put_restricted")).hasAuthority("DOCTOR")
+                        .mvcMatchers(filters.getUrl("admin_restricted")).hasAuthority("ADMIN")
+                        .mvcMatchers(HttpMethod.GET, filters.getUrl("admin_get_restricted")).hasAuthority("ADMIN")
+                        .mvcMatchers(HttpMethod.DELETE, filters.getUrl("admin_delete_restricted")).hasAuthority("ADMIN")
+                        .mvcMatchers(filters.getUrls("superAdmin_restricted").toArray(new String[0])).hasAuthority("SUPER_ADMIN")
                         .mvcMatchers(filters.getUrl("restricted")).authenticated())
                 .httpBasic(Customizer.withDefaults())
                 .cors().disable()
