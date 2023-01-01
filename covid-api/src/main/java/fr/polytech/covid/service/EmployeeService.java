@@ -26,9 +26,14 @@ import java.util.*;
 public class EmployeeService implements UserDetailsService {
     private static Logger log = LoggerFactory.getLogger(EmployeeService.class);
     private final EmployeeRepository employeeRepository;
-    private final RoleRepository roleRepository;
     private final CenterRepository centerRepository;
     private final PasswordEncoder passwordEncoder;
+
+    private Role doctorRole;
+
+    private Role adminRole;
+
+    private Role superAdminRole;
 
     @Autowired
     public EmployeeService(
@@ -37,27 +42,29 @@ public class EmployeeService implements UserDetailsService {
             CenterRepository centerRepository,
             PasswordEncoder passwordEncoder) {
         this.employeeRepository = employeeRepository;
-        this.roleRepository = roleRepository;
         this.centerRepository = centerRepository;
+
         this.passwordEncoder = passwordEncoder;
+
+        this.doctorRole = roleRepository.findByName("DOCTOR");
+        this.adminRole = roleRepository.findByName("ADMIN");
+        this.superAdminRole = roleRepository.findByName("SUPER_ADMIN");
     }
 
     @PostConstruct
     public void createUserDefault() {
         if (employeeRepository.findByUsername("user").isEmpty()) {
             log.info("Création de l'employé par defaut");
-            Role doctorRole = roleRepository.findByName("DOCTOR");
             Center center = centerRepository.findByNameContainsIgnoreCaseOrderByNameAsc("Centre de test").get(0);
-            createEmployee("user", "user", "test", doctorRole, "password", center);
+            createEmployee("user", "user", "test", this.doctorRole, "password", center);
         }
     }
     @PostConstruct
     public void createAdminDefault(){
         if (employeeRepository.findByUsername("admin").isEmpty()) {
             log.info("Création de l'admin par défaut");
-            Role adminRole = roleRepository.findByName("ADMIN");
             Center center = centerRepository.findByNameContainsIgnoreCaseOrderByNameAsc("Centre de test").get(0);
-            createEmployee("admin", "admin", "test", adminRole, "password", center);
+            createEmployee("admin", "admin", "test", this.adminRole, "password", center);
         }
     }
 
@@ -66,8 +73,7 @@ public class EmployeeService implements UserDetailsService {
         if(employeeRepository.findByUsername("super_admin").isEmpty()){
             log.info("Création du super admin par défaut");
             Employee superAdmin = new Employee();
-            Role superAdminRole = roleRepository.findByName("SUPER_ADMIN");
-            createEmployee("super_admin","super_admin","test",superAdminRole,"password",null);
+            createEmployee("super_admin", "super_admin", "test", this.superAdminRole, "password", null);
         }
     }
 
@@ -82,12 +88,53 @@ public class EmployeeService implements UserDetailsService {
         employee.setUsername(username);
         employee.setFirstName(firstName);
         employee.setLastName(lastName);
-        employee.setRoles(Collections.singletonList(role));
+        employee.setRole(role);
         employee.setPassword(passwordEncoder.encode(password));
         employee.setCenter(center);
         this.employeeRepository.save(employee);
+    }
 
+    public void createEmployee(Employee employee){
+        Employee savedEmployee = new Employee();
+        copyEmployeeInfo(employee, savedEmployee);
+    }
 
+    public void updateEmployee(Employee employee){
+        Employee registeredEmployee = this.employeeRepository.findById(employee.getId()).orElse(new Employee());
+        copyEmployeeInfo(employee, registeredEmployee);
+    }
+
+    private void copyEmployeeInfo(Employee newEmployee, Employee oldEmployee) {
+        oldEmployee.setUsername(newEmployee.getUsername());
+        oldEmployee.setFirstName(newEmployee.getFirstName());
+        oldEmployee.setLastName(newEmployee.getLastName());
+        oldEmployee.setRole(newEmployee.getRole());
+        oldEmployee.setPassword(passwordEncoder.encode(newEmployee.getPassword()));
+        oldEmployee.setCenter(newEmployee.getCenter());
+        this.employeeRepository.save(oldEmployee);
+    }
+
+    public void deleteEmployee(Employee employee){
+        Optional<Employee> savedEmployee = this.employeeRepository.findById(employee.getId());
+        if(savedEmployee.isPresent() && savedEmployee.get() == employee)
+            this.employeeRepository.delete(employee);
+    }
+
+    public List<Employee> getEmployees() {
+        ArrayList<Employee> employees = new ArrayList<>();
+        this.employeeRepository.findAll().forEach(employees::add);
+        return employees;
+    }
+
+    public List<Employee> getAdministrators(){
+        return this.employeeRepository.findByRole_Id(this.adminRole.getId());
+    }
+
+    public List<Employee> getDoctorsByCenter(Center center){
+        return this.employeeRepository.findDistinctByRole_IdAndCenter_Id(
+                this.doctorRole.getId(),
+                center.getId()
+        );
     }
 
 
@@ -99,7 +146,7 @@ public class EmployeeService implements UserDetailsService {
         Optional<Employee> optionalEmployee = employeeRepository.findByUsername(username);
         if(optionalEmployee.isPresent()){
             Employee employee = optionalEmployee.get();
-            return new User(employee.getUsername(), employee.getPassword(),getAutorities(employee.getRoles()));
+            return new User(employee.getUsername(), employee.getPassword(),getAutorities(Collections.singletonList(employee.getRole())));
         } else {
             throw new UsernameNotFoundException("L'utilisateur" + username +"n'existe pas");
         }
@@ -109,7 +156,7 @@ public class EmployeeService implements UserDetailsService {
       List<GrantedAuthority> authorities = new ArrayList<>();
       roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
       return authorities;
-    }
+}
 
 
 }

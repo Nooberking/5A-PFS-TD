@@ -1,7 +1,6 @@
 package fr.polytech.covid.entity;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 public class Role {
@@ -11,14 +10,19 @@ public class Role {
     private int id;
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Collection<Employee> employees;
-
     public Role() {
     }
 
     public Role(String name) {
         this.name = name;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -29,13 +33,6 @@ public class Role {
         this.name = name;
     }
 
-    public Collection<Employee> getEmployees() {
-        return employees;
-    }
-
-    public void setEmployees(Collection<Employee> employees) {
-        this.employees = employees;
-    }
 
 }
 
