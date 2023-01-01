@@ -10,6 +10,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.lang.Nullable;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -18,9 +20,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class EmployeeService implements UserDetailsService {
@@ -99,10 +99,16 @@ public class EmployeeService implements UserDetailsService {
         Optional<Employee> optionalEmployee = employeeRepository.findByUsername(username);
         if(optionalEmployee.isPresent()){
             Employee employee = optionalEmployee.get();
-            return new User(employee.getUsername(), employee.getPassword(), List.of());
+            return new User(employee.getUsername(), employee.getPassword(),getAutorities(employee.getRoles()));
         } else {
             throw new UsernameNotFoundException("L'utilisateur" + username +"n'existe pas");
         }
+    }
+
+    private Collection<? extends GrantedAuthority> getAutorities(Collection<Role> roles) {
+      List<GrantedAuthority> authorities = new ArrayList<>();
+      roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role.getName())));
+      return authorities;
     }
 
 

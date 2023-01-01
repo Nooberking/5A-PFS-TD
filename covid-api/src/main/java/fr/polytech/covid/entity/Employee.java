@@ -18,9 +18,10 @@ public class Employee {
     private Center center;
     private String password;
 
-    @ManyToMany
+
+    @ManyToMany(fetch = FetchType.EAGER)
     @JoinTable(
-            name = "employees_role",
+            name = "employees_roles",
             joinColumns = @JoinColumn(
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
