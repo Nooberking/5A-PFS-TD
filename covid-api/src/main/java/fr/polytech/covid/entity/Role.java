@@ -17,9 +17,8 @@ public class Role {
     public Role() {
     }
 
-    public Role(String name, Collection<Employee> employees) {
+    public Role(String name) {
         this.name = name;
-        this.employees = employees;
     }
 
     public String getName() {
