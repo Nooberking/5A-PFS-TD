@@ -1,0 +1,9 @@
+single_url_restriction :
+  ["/url/single/success"]
+
+multiple_urls_restriction :
+  [
+  "/url/multiple/1/success",
+  "/url/multiple/2/success",
+  "/url/multiple/3/success"
+  ]
