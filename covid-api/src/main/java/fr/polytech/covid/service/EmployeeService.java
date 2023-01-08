@@ -43,7 +43,6 @@ public class EmployeeService implements UserDetailsService {
             PasswordEncoder passwordEncoder) {
         this.employeeRepository = employeeRepository;
         this.centerRepository = centerRepository;
-
         this.passwordEncoder = passwordEncoder;
 
         this.doctorRole = roleRepository.findByName("DOCTOR");
@@ -104,12 +103,13 @@ public class EmployeeService implements UserDetailsService {
         copyEmployeeInfo(employee, registeredEmployee);
     }
 
-    private void copyEmployeeInfo(Employee newEmployee, Employee oldEmployee) {
+    protected void copyEmployeeInfo(Employee newEmployee, Employee oldEmployee) {
         oldEmployee.setUsername(newEmployee.getUsername());
         oldEmployee.setFirstName(newEmployee.getFirstName());
         oldEmployee.setLastName(newEmployee.getLastName());
         oldEmployee.setRole(newEmployee.getRole());
-        oldEmployee.setPassword(passwordEncoder.encode(newEmployee.getPassword()));
+        if(!newEmployee.getPassword().isEmpty())
+            oldEmployee.setPassword(passwordEncoder.encode(newEmployee.getPassword()));
         oldEmployee.setCenter(newEmployee.getCenter());
         this.employeeRepository.save(oldEmployee);
     }
