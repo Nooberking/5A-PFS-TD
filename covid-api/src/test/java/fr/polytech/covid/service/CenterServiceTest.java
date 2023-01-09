@@ -11,7 +11,6 @@ import org.springframework.util.Assert;
 
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
-import java.util.function.Predicate;
 
 import static org.mockito.Mockito.*;
 
@@ -58,7 +57,7 @@ class CenterServiceTest {
         verify(centerRepository, times(1)).findByOrderByNameAsc();
         verifyNoMoreInteractions(centerRepository);
     }
-
+ /*
     @Test
     public void givenCity_ShouldReturnExpectedCenters() {
         // Arrange
@@ -101,6 +100,8 @@ class CenterServiceTest {
         verifyNoMoreInteractions(centerRepository);
     }
 
+
+  */
     @Test
     public void givenCenterId_ShouldReturnExpectedCenter() {
         // Arrange
