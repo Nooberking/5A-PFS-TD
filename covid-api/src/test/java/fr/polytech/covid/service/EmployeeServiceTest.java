@@ -11,23 +11,27 @@ import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.util.Assert;
 
 import java.util.List;
 import java.util.Optional;
 
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.*;
 
 public class EmployeeServiceTest {
 
 
+    @Mock
+    private Role mockDoctorRole;
 
-    private  Role mockDoctorRole;
-
+    @Mock
     private Role mockAdminRole;
 
-
+    @Mock
     private Role mockSuperAdminRole;
 
 
@@ -170,6 +174,24 @@ public class EmployeeServiceTest {
         verifyNoInteractions(centerRepository);
         verifyNoMoreInteractions(employeeRepository);
 
+    }
+
+    @Test
+    public void whenUserNotFound_ShouldThrowUsernameNotFoundException(){
+        // Arrange
+        when(employeeRepository.findByUsername(anyString())).thenReturn(Optional.empty());
+        String expectedMessage = "L'utilisateur NotExisted n'existe pas";
+
+        // Act
+        Exception exception = assertThrows(
+                UsernameNotFoundException.class,
+                () -> employeeService.loadUserByUsername("NotExisted"));
+
+        // Assert
+        Assert.isTrue(!exception.getMessage().isEmpty(),
+                "No expected exception thrown.");
+        Assert.isTrue(exception.getMessage().equals(expectedMessage),
+                "Not expected exception message.");
     }
 
 }

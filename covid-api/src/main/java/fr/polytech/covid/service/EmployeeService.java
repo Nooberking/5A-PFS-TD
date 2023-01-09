@@ -148,7 +148,7 @@ public class EmployeeService implements UserDetailsService {
             Employee employee = optionalEmployee.get();
             return new User(employee.getUsername(), employee.getPassword(),getAutorities(Collections.singletonList(employee.getRole())));
         } else {
-            throw new UsernameNotFoundException("L'utilisateur" + username +"n'existe pas");
+            throw new UsernameNotFoundException("L'utilisateur " + username +" n'existe pas");
         }
     }
 
