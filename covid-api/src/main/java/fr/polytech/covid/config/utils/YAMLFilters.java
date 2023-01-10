@@ -1,4 +1,4 @@
-package fr.polytech.covid.config;
+package fr.polytech.covid.config.utils;
 
 import org.springframework.core.io.ClassPathResource;
 import org.yaml.snakeyaml.Yaml;
