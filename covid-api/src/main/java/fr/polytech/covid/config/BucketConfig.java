@@ -56,7 +56,7 @@ public class BucketConfig implements HandlerInterceptor, WebMvcConfigurer    {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry){
-        registry.addInterceptor(this).addPathPatterns(filters.getUrls("bucket_limited"));
+        registry.addInterceptor(this).addPathPatterns(filters.getUrl("bucket_limited"));
     }
 
 }
