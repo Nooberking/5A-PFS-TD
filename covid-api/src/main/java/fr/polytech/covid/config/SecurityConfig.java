@@ -1,5 +1,6 @@
 package fr.polytech.covid.config;
 
+import fr.polytech.covid.config.utils.YAMLFilters;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Bean;
