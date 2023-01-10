@@ -1,5 +1,6 @@
-package fr.polytech.covid.config;
+package fr.polytech.covid.config.interceptors;
 
+import fr.polytech.covid.config.BucketConfig;
 import io.github.bucket4j.ConsumptionProbe;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
@@ -16,20 +17,24 @@ import java.util.Objects;
 
 
 @SpringBootTest
-public class BucketConfigTest {
+public class BucketHandlerInterceptorTest {
 
-    @Autowired
-    private BucketConfig bucketConfig;
 
+    private final BucketHandlerInterceptor bucketHandlerInterceptor;
     @MockBean
     private ConsumptionProbe mockProbe;
 
     private long tokensCountBeforeTest;
 
+    @Autowired
+    public BucketHandlerInterceptorTest(BucketConfig bucketConfig) {
+        this.bucketHandlerInterceptor = (BucketHandlerInterceptor) bucketConfig.bucketHandlerInterceptor();
+    }
+
     @BeforeTestClass
     public void setup(){
-        tokensCountBeforeTest  = bucketConfig.bucket.getAvailableTokens();
-        if(tokensCountBeforeTest == 0) bucketConfig.bucket.addTokens(1);
+        tokensCountBeforeTest  = bucketHandlerInterceptor.bucket.getAvailableTokens();
+        if(tokensCountBeforeTest == 0) bucketHandlerInterceptor.bucket.addTokens(1);
     }
 
     @Test
@@ -40,9 +45,9 @@ public class BucketConfigTest {
         Object mockHandler = Mockito.mock(Object.class);
 
         // Act
-        boolean actualPreHandleWhenBucketNotEmpty = bucketConfig.preHandle(mockRequest, mockResponse, mockHandler);
-        bucketConfig.bucket.tryConsumeAsMuchAsPossible();
-        boolean actualPreHandleWhenEmpty = bucketConfig.preHandle(mockRequest, mockResponse, mockHandler);
+        boolean actualPreHandleWhenBucketNotEmpty = bucketHandlerInterceptor.preHandle(mockRequest, mockResponse, mockHandler);
+        bucketHandlerInterceptor.bucket.tryConsumeAsMuchAsPossible();
+        boolean actualPreHandleWhenEmpty = bucketHandlerInterceptor.preHandle(mockRequest, mockResponse, mockHandler);
 
         // Assert
         Assert.isTrue(actualPreHandleWhenBucketNotEmpty,
@@ -63,7 +68,7 @@ public class BucketConfigTest {
                 .thenReturn(expectedRemainingToken);
 
         // Act
-        bucketConfig.addRateRemainingHeader(mockResponse, mockProbe);
+        bucketHandlerInterceptor.addRateRemainingHeader(mockResponse, mockProbe);
 
         // Assert
         Assert.isTrue(mockResponse.getStatus() == 200,
@@ -74,7 +79,6 @@ public class BucketConfigTest {
 
         Assert.isTrue(Objects.equals(mockResponse.getHeaderValue("X-Rate-Limit-Remaining"), "9"),
                 "Not expected remaining token value on the X-Rate-Limit-Remaining header.");
-
     }
 
     @Test
@@ -89,7 +93,7 @@ public class BucketConfigTest {
                 .thenReturn(expectedNanosToWaitForRefill);
 
         // Act
-         bucketConfig.addRateRetryAfterHeader(mockResponse, mockProbe);
+        bucketHandlerInterceptor.addRateRetryAfterHeader(mockResponse, mockProbe);
 
         // Assert
         Assert.isTrue(mockResponse.getStatus() == 429,
@@ -100,15 +104,11 @@ public class BucketConfigTest {
 
         Assert.isTrue(Objects.equals(mockResponse.getHeaderValue("Rate-Limit-Retry-After-Seconds"), "60"),
                 "Not expected remaining token value on the Rate-Limit-Retry-After-Seconds header.");
-
-
-
     }
-
 
     @AfterTestClass
     public void resetBucket() {
-        long actualTokensCount = bucketConfig.bucket.getAvailableTokens();
+        long actualTokensCount = bucketHandlerInterceptor.bucket.getAvailableTokens();
 
         if( tokensCountBeforeTest != actualTokensCount){
             resetBucketTokens(actualTokensCount);
@@ -117,10 +117,8 @@ public class BucketConfigTest {
 
     public void resetBucketTokens(long tokensCount){
         if( tokensCountBeforeTest < tokensCount)
-            bucketConfig.bucket.tryConsume(tokensCount - tokensCountBeforeTest);
+            bucketHandlerInterceptor.bucket.tryConsume(tokensCount - tokensCountBeforeTest);
         else
-            bucketConfig.bucket.addTokens(tokensCountBeforeTest - tokensCount);
+            bucketHandlerInterceptor.bucket.addTokens(tokensCountBeforeTest - tokensCount);
     }
-
-
 }
