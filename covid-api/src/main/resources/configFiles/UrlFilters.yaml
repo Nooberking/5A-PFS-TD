@@ -31,6 +31,5 @@ superAdmin_restricted :
 ### Bucket limited
 bucket_limited :
   [
-    "/api/admin/patients",
-    "/api/admin/reservations"
+    "/api/public/reservation"
   ]
