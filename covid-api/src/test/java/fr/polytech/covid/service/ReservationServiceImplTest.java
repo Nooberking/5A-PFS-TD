@@ -15,7 +15,7 @@ import java.util.Optional;
 import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.Mockito.*;
 
-public class ReservationServiceTest {
+public class ReservationServiceImplTest {
 
     @Mock
     private ReservationRepository reservationRepository;
@@ -24,7 +24,7 @@ public class ReservationServiceTest {
     private PatientRepository patientRepository;
 
     @InjectMocks
-    private ReservationService reservationService;
+    private ReservationServiceImpl reservationServiceImpl;
 
     @BeforeEach
     public void setUp(){
@@ -36,7 +36,7 @@ public class ReservationServiceTest {
         when(patientRepository.findById(anyInt())).thenReturn(Optional.empty());
 
         // Act
-        Reservation resultReservation = reservationService.getReservationOfPatient(193938);
+        Reservation resultReservation = reservationServiceImpl.getReservationOfPatient(193938);
 
         // Test
         verify(patientRepository, times(1)).findById(anyInt());

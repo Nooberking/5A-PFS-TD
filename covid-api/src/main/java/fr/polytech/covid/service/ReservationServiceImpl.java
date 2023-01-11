@@ -5,18 +5,19 @@ import fr.polytech.covid.entity.Patient;
 import fr.polytech.covid.entity.Reservation;
 import fr.polytech.covid.repository.PatientRepository;
 import fr.polytech.covid.repository.ReservationRepository;
+import fr.polytech.covid.service.interfaces.ReservationService;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class ReservationService {
+public class ReservationServiceImpl implements ReservationService {
 
     private final ReservationRepository reservationRepository;
     private final PatientRepository patientRepository;
 
-    public ReservationService(ReservationRepository reservationRepository, PatientRepository patientRepository) {
+    public ReservationServiceImpl(ReservationRepository reservationRepository, PatientRepository patientRepository) {
         this.reservationRepository = reservationRepository;
         this.patientRepository = patientRepository;
     }
@@ -40,6 +41,7 @@ public class ReservationService {
         return new ArrayList<>(reservationRepository.findByCenter(center));
     }
 
+    @Override
     public void addReservation(Reservation reservation){reservationRepository.save(reservation);}
 
     public void deleteReservation(Reservation reservation){
