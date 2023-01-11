@@ -2,7 +2,7 @@ package fr.polytech.covid.controller;
 
 import fr.polytech.covid.entity.Reservation;
 import fr.polytech.covid.service.PatientService;
-import fr.polytech.covid.service.ReservationService;
+import fr.polytech.covid.service.ReservationServiceImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,13 +12,13 @@ import org.springframework.web.bind.annotation.*;
 public class PublicReservationController {
 
 
-    private final ReservationService reservationService;
+    private final ReservationServiceImpl reservationServiceImpl;
     private final PatientService patientService;
 
     public PublicReservationController(
-            ReservationService reservationService,
+            ReservationServiceImpl reservationServiceImpl,
             PatientService patientService) {
-        this.reservationService = reservationService;
+        this.reservationServiceImpl = reservationServiceImpl;
         this.patientService = patientService;
 
     }
@@ -27,7 +27,7 @@ public class PublicReservationController {
     @PostMapping("/reservation")
     public ResponseEntity<String> addReservation(@RequestBody Reservation reservation){
         patientService.addPatient(reservation.getPatient());
-        reservationService.addReservation(reservation);
+        reservationServiceImpl.addReservation(reservation);
         return ResponseEntity.ok().build();
     }
 

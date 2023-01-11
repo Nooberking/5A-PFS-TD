@@ -2,7 +2,6 @@ package fr.polytech.covid.service;
 
 import fr.polytech.covid.entity.Center;
 import fr.polytech.covid.repository.CenterRepository;
-import io.micrometer.core.annotation.Timed;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -20,7 +19,7 @@ public class CenterService {
     public List<Center> getCenters(){
         return new ArrayList<>(centerRepository.findByOrderByNameAsc());
     }
-    @Timed(value = "Centers.time", description = "Time taken to return all centers by city")
+
     public List<Center> getCenters(String city){
         if (city == null || city.equals("")) return getCenters();
         return new ArrayList<>(centerRepository.findByCityContainsIgnoreCaseOrderByNameAsc(city));
