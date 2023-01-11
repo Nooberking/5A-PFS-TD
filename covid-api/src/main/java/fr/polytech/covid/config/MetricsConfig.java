@@ -1,6 +1,6 @@
 package fr.polytech.covid.config;
 
-import io.micrometer.core.aop.TimedAspect;
+import fr.polytech.covid.metrics.ReservationMetricsAspect;
 import io.micrometer.core.instrument.MeterRegistry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -15,7 +15,7 @@ public class MetricsConfig {
     public MetricsConfig(MeterRegistry registry){ this.registry = registry; }
 
     @Bean
-    public TimedAspect timedAspect() {
-        return new TimedAspect(this.registry);
+    public ReservationMetricsAspect reservationMetricsAspect(){
+        return new ReservationMetricsAspect(this.registry);
     }
 }
