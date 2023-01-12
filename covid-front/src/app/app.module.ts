@@ -10,6 +10,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HomePageComponent } from './homePage/homePage.component';
 import { registerLocaleData } from '@angular/common';
 import localeFr from '@angular/common/locales/fr';
+import { LoginPageComponent } from './loginPage/loginPage.component';
 
 registerLocaleData(localeFr, 'fr');
 
@@ -18,6 +19,7 @@ registerLocaleData(localeFr, 'fr');
     AppComponent,
     HomePageComponent,
     HomePageStartButtonComponent,
+    LoginPageComponent
    ],
   imports: [
     BrowserModule,

@@ -1,3 +1,4 @@
+import { LoginPageComponent } from './loginPage/loginPage.component';
 import { CanDesactivateGuard } from './shared/guards/CanDesactivateGuard';
 import { ReservationPageComponent } from './reservationPage/reservationPage.component';
 import { HomePageComponent } from './homePage/homePage.component';
@@ -7,6 +8,7 @@ import { RouterModule, Routes } from '@angular/router';
 const routes: Routes = [
   { path:'home', component: HomePageComponent },
   { path:'reservation', component: ReservationPageComponent, canDeactivate:[CanDesactivateGuard]},
+  { path:'login', component: LoginPageComponent},
   { path:'', redirectTo:'home', pathMatch: 'full'}
 ];
 

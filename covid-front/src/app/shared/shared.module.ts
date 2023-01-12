@@ -19,6 +19,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatCardModule } from '@angular/material/card'; 
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -64,6 +65,7 @@ import { FooterComponent } from './components/footer/footer.component';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatCardModule,
 
     HeaderComponent,
     FooterComponent,
