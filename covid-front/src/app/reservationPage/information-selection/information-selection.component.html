@@ -1,0 +1,66 @@
+<div id="info-selection-container">
+  <h2>Saisissez vos informations personnelles</h2>
+    <form>
+      <div class="field-row-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Nom</mat-label>
+          <input
+          type="text"
+          [formControl]="nameFormControl"
+          placeholder="Dupont"
+          matInput/>
+          <mat-error *ngIf="nameFormControl.hasError('required')">
+            Un nom est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="field-row-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Prénom</mat-label>
+          <input
+          type="text"
+          [formControl]="firstnameFormControl"
+          placeholder="Jean"
+          matInput/>
+          <mat-error *ngIf="firstnameFormControl.hasError('required')">
+            Un prénom est requis.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+
+
+      <div class="field-row-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Email</mat-label>
+          <input
+          type="email"
+          [formControl]="emailFormControl"
+          placeholder="jean.dupont@email.com"
+          matInput/>
+          <mat-error *ngIf="emailFormControl.hasError('email') && !emailFormControl.hasError('required')">
+            Entrez une adresse mail valide.
+          </mat-error>
+          <mat-error *ngIf="emailFormControl.hasError('required')">
+            Une adresse mail est requise.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button
+      class="previous-button"
+      color="primary"
+      mat-raised-button
+      matStepperPrevious>
+        Précédent
+      </button>
+
+      <button
+      color="primary"
+      [disabled]="nameFormControl.hasError('required')
+      || firstnameFormControl.hasError('required')
+      || emailFormControl.hasError('required')
+      || emailFormControl.hasError('email')"
+      (click)="onConfirmInfos()"
+      matStepperNext
+      mat-raised-button>Confirmer</button>
+    </form>

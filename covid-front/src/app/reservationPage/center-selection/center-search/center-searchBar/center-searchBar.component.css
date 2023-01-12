@@ -1,0 +1,18 @@
+
+
+#all-centers-link{
+  margin-left: auto;
+  margin-right: auto;
+  width: fit-content;
+  margin-top: -9px;
+  color: blue;
+  text-decoration: underline;
+  text-decoration-color: blue ;
+  transition: .3s color ease-in-out, .3s text-decoration-color ease-in-out;
+}
+
+#all-centers-link:hover{
+  color: rgb(199, 164, 8);
+  cursor: pointer;
+  text-decoration-color: rgb(199, 164, 8);
+}

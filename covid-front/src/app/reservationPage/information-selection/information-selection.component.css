@@ -1,0 +1,19 @@
+#info-selection-container{
+  text-align: center;
+
+}
+h2 {
+  font-size: 2em;
+  color: #29398D;
+}
+.field-row-container{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 2em;
+}
+
+.previous-button{
+  margin-right: 10px;
+}
+
+
