@@ -37,6 +37,7 @@ export class InformationSelectionComponent {
    * @memberof InformationSelectionComponent
    */
   nameFormControl: FormControl = new FormControl('',[Validators.required]);
+  phoneNumberControl: FormControl = new FormControl('',[Validators.required, Validators.maxLength(20)])
   /**
    * Patient informations.
    *
@@ -46,7 +47,8 @@ export class InformationSelectionComponent {
   patient : Patient = {
     "firstName": "",
     "lastName": "",
-    "mail": ""
+    "mail": "",
+    "phoneNumber": ""
   };
   /**
    * Boolean for if this phase was already completed.
@@ -72,6 +74,7 @@ export class InformationSelectionComponent {
     this.patient.firstName = this.firstnameFormControl.value
     this.patient.lastName = this.nameFormControl.value;
     this.patient.mail = this.emailFormControl.value;
+    this.patient.phoneNumber = this.phoneNumberControl.value.replace(' ', '');
     this.reservationService.updateReservationPatient(this.patient);
     if(!this.alreadyPassed){
       this.reservationService.updateReservationState(2);

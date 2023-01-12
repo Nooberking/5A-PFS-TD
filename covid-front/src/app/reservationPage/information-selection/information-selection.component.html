@@ -1,6 +1,7 @@
 <div id="info-selection-container">
   <h2>Saisissez vos informations personnelles</h2>
     <form>
+
       <div class="field-row-container">
         <mat-form-field appearance="fill">
           <mat-label>Nom</mat-label>
@@ -14,6 +15,7 @@
           </mat-error>
         </mat-form-field>
       </div>
+
       <div class="field-row-container">
         <mat-form-field appearance="fill">
           <mat-label>Prénom</mat-label>
@@ -28,8 +30,6 @@
         </mat-form-field>
       </div>
 
-
-
       <div class="field-row-container">
         <mat-form-field appearance="fill">
           <mat-label>Email</mat-label>
@@ -43,6 +43,24 @@
           </mat-error>
           <mat-error *ngIf="emailFormControl.hasError('required')">
             Une adresse mail est requise.
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="field-row-container">
+        <mat-form-field appearance="fill">
+          <mat-label>Téléphone</mat-label>
+          <input
+          type="tel"
+          [formControl]="phoneNumberControl"
+          maxlength="25"
+          placeholder="01 23 45 67 89"
+          matInput/>
+          <mat-error *ngIf="phoneNumberControl.hasError('required')">
+            Un numéro de téléphone est requis.
+          </mat-error>
+          <mat-error *ngIf="phoneNumberControl.hasError('maxlength')">
+            numéro de téléphone invalide.
           </mat-error>
         </mat-form-field>
       </div>

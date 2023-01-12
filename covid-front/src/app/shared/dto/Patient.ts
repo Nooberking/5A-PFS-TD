@@ -31,5 +31,13 @@ export interface Patient {
    * @type {string}
    * @memberof Patient
    */
-  mail: string
+  mail: string,
+  /**
+   *Phone number of the patient.
+   *
+   * @type {string}
+   * @memberof Patient
+   */
+  phoneNumber: string
+
 }
