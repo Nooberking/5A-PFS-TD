@@ -146,7 +146,9 @@ public class EmployeeService implements UserDetailsService {
         Optional<Employee> optionalEmployee = employeeRepository.findByUsername(username);
         if(optionalEmployee.isPresent()){
             Employee employee = optionalEmployee.get();
-            return new User(employee.getUsername(), employee.getPassword(),getAutorities(Collections.singletonList(employee.getRole())));
+            return new User(employee.getUsername(),
+                    employee.getPassword(),
+                    getAutorities(Collections.singletonList(employee.getRole())));
         } else {
             throw new UsernameNotFoundException("L'utilisateur " + username +" n'existe pas");
         }
