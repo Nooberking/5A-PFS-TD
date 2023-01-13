@@ -1,2 +1,10 @@
-<app-sidenav></app-sidenav>
-
+<mat-sidenav-container>
+  <mat-sidenav  [mode]="sidenavInfos.mode" class="mat-elevation-z8" [opened]="sidenavInfos.opened">
+    <app-sidenav></app-sidenav>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      Main content here !
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

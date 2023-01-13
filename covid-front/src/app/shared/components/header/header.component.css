@@ -2,7 +2,9 @@
   justify-content: space-between;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
+#menu-sidenav{
+  font-size: 1.7em;
+}
 #header-title{
   font-weight: lighter;
   font-size: 1.3em;

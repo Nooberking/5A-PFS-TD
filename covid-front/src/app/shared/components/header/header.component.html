@@ -1,6 +1,20 @@
 <mat-toolbar id="header-navbar" color="primary">
-  <span id="header-title">Covid Vaccination</span>
-  <div class="home-icon" (click)="onClick()"><mat-icon id="header-home-icon" aria-hidden="false" aria-label="Example home icon">home</mat-icon></div>
+  <div>
+    <button mat-icon-button
+    *ngIf="sidenavInfos.mode === 'over'"
+    (click)="toggleSidenav()"
+    id="menu-sidenav">
+      <mat-icon *ngIf="!sidenavInfos.opened">
+        menu
+      </mat-icon>
+      <mat-icon *ngIf="sidenavInfos.opened">
+        close
+      </mat-icon>
+    </button>
+    <span id="header-title">Covid Vaccination</span>
+  </div>
+
+  <div class="home-icon" (click)="onHomeClick()"><mat-icon id="header-home-icon" aria-hidden="false" aria-label="Example home icon">home</mat-icon></div>
 </mat-toolbar>
 
 

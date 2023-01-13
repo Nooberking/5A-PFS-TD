@@ -1,5 +1,8 @@
+import { Subscription } from 'rxjs';
+import { SidenavService } from './../../services/sidenav.service';
+import { SidenavInfos } from './../../dto/SidenavInfos';
 import { Router } from '@angular/router';
-import { Component } from '@angular/core';
+import { Component, AfterViewInit, OnDestroy } from '@angular/core';
 
 /**
  * Component for the header template.
@@ -12,14 +15,29 @@ import { Component } from '@angular/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.css']
 })
-export class HeaderComponent {
+export class HeaderComponent implements AfterViewInit, OnDestroy{
+
+  sidenavInfos: SidenavInfos = {
+    mode: "side",
+    opened: true
+  };
+
+  sub?: Subscription;
 
   /**
    * Creates an instance of HeaderComponent.
    * @param {Router} router
    * @memberof HeaderComponent
    */
-  constructor(private router: Router) { }
+  constructor(
+    private router: Router,
+    private sidenavService: SidenavService) { }
+
+  ngAfterViewInit(): void {
+    this.sub = this.sidenavService.changeInfos.subscribe(infos => {
+      this.sidenavInfos = infos;
+    });
+  }
 
 
   /**
@@ -27,9 +45,19 @@ export class HeaderComponent {
    *
    * @memberof HeaderComponent
    */
-  onClick(){
+  onHomeClick(){
     this.router.navigate(['./home']);
   }
 
+  toggleSidenav(){
+    this.sidenavService.toggle();
+    this.sub = this.sidenavService.changeInfos.subscribe(infos => {
+      this.sidenavInfos = infos;
+    });
+  }
+  
+  ngOnDestroy(): void {
+    this.sub?.unsubscribe();
+  }
 
 }

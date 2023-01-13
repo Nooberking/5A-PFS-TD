@@ -22,7 +22,6 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
-import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 import { HeaderComponent } from './components/header/header.component';
@@ -53,8 +52,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatDividerModule,
-    MatSidenavModule
+    MatDividerModule
   ],
   exports:[
     FormsModule,
