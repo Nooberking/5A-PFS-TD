@@ -1,3 +1,4 @@
+
 import { ToFillPipe } from './pipes/toFill.pipe';
 import { PercentagePipe } from './pipes/percentage.pipe';
 import { AppRoutingModule } from './../app-routing.module';
@@ -19,11 +20,14 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
-import { MatCardModule } from '@angular/material/card'; 
+import { MatCardModule } from '@angular/material/card';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 
 import { HeaderComponent } from './components/header/header.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { SidenavComponent } from './components/sidenav/sidenav.component';
 
 /**
  *
@@ -48,7 +52,9 @@ import { FooterComponent } from './components/footer/footer.component';
     MatListModule,
     MatProgressSpinnerModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatDividerModule,
+    MatSidenavModule
   ],
   exports:[
     FormsModule,
@@ -69,6 +75,7 @@ import { FooterComponent } from './components/footer/footer.component';
 
     HeaderComponent,
     FooterComponent,
+    SidenavComponent,
 
     PercentagePipe,
     ToFillPipe,
@@ -77,6 +84,7 @@ import { FooterComponent } from './components/footer/footer.component';
   declarations: [
     HeaderComponent,
     FooterComponent,
+    SidenavComponent,
 
     PercentagePipe,
     ToFillPipe

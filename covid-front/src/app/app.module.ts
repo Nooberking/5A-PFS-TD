@@ -1,3 +1,4 @@
+import { AdministrationPageModule } from './administrationPage/administrationPage.module';
 import { ReservationPageModule } from './reservationPage/reservationPage.module';
 import { HomePageStartButtonComponent } from './homePage/homePage-startButton/homePage-startButton.component';
 import { SharedModule } from './shared/shared.module';
@@ -26,6 +27,7 @@ registerLocaleData(localeFr, 'fr');
     SharedModule,
     AppRoutingModule,
     ReservationPageModule,
+    AdministrationPageModule,
     BrowserAnimationsModule
   ],
   providers: [],
