@@ -10,7 +10,11 @@ const routes: Routes = [
   { path:'home', component: HomePageComponent },
   { path:'reservation', component: ReservationPageComponent, canDeactivate:[CanDesactivateGuard]},
   { path:'login', component: LoginPageComponent},
-  { path:'admin', component: AdministrationPageComponent},
+  {
+    path:'admin',
+    component: AdministrationPageComponent
+  },
+  
   { path:'', redirectTo:'home', pathMatch: 'full'}
 ];
 

@@ -1,0 +1,22 @@
+.center-div{
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.search-title {
+  font-size: 2em;
+  line-height: 1em !important;
+  color: #29398D;
+  text-decoration: underline;
+}
+
+.spinner-container{
+  margin-left: 35vw;
+}
+
+.not-found{
+  text-align: center;
+  font-size: 3em;
+  line-height: 1.2em;
+  color: darkgrey;
+}

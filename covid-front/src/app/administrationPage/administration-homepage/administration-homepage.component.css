@@ -1,0 +1,10 @@
+.dashboard-menu-cards{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: fit-content;
+}
+.menu-card{
+  margin: 25px;
+}
+

@@ -2,6 +2,9 @@
   border-bottom: 1px solid grey;
   cursor: default!important;
 }
+.modify-button{
+  margin-right: 10px;
+}
 
 .center-name{
   font-weight: bolder;

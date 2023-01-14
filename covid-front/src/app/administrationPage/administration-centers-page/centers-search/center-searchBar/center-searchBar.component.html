@@ -1,0 +1,15 @@
+
+<mat-form-field appearance="fill">
+  <mat-label>Saisir le nom du centre</mat-label>
+  <input
+  type="text"
+  matInput
+  placeholder="Ex: UHSI Nancy"
+  [(ngModel)]="request"
+  (change)="updateRequest()"
+  />
+  <mat-icon matSuffix>search</mat-icon>
+</mat-form-field>
+<div id="all-centers-link" (click)="requestAllCenters()">
+  afficher tous les centres
+</div>

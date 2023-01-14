@@ -1,0 +1,14 @@
+<mat-list-option (selectedChange)="confirmButton()" class="center-item">
+  <div class="item-container">
+    <div>
+      <div class="center-name" mat-line>{{center.name}}</div>
+      <div class="center-city" mat-line>{{center.city}}</div>
+    </div>
+    <div class="options-button">
+      <button class="modify-button" *ngIf="buttonConfirm" color="primary" (click)="selectCenter()" mat-raised-button>modifier ce centre</button>
+      <button *ngIf="buttonConfirm" color="warn" (click)="deleteCenter()" mat-raised-button>supprimer ce centre</button>
+    </div>
+
+
+  </div>
+</mat-list-option>
