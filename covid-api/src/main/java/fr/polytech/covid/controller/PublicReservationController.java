@@ -2,9 +2,13 @@ package fr.polytech.covid.controller;
 
 import fr.polytech.covid.entity.Reservation;
 import fr.polytech.covid.service.PatientService;
+
 import fr.polytech.covid.service.ReservationServiceImpl;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.Duration;
 
 
 @RestController
@@ -12,7 +16,9 @@ import org.springframework.web.bind.annotation.*;
 public class PublicReservationController {
 
 
+
     private final ReservationServiceImpl reservationServiceImpl;
+
     private final PatientService patientService;
 
     public PublicReservationController(
