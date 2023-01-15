@@ -1,0 +1,18 @@
+<mat-list-option (selectedChange)="confirmButton()" class="center-item">
+  <div class="item-container">
+    <div class="user-username" mat-line>{{userDetails?.username}}</div>
+  </div>
+  
+  <div class="options-button" *ngIf="buttonConfirm">
+    <button class="modify-button" mat-raised-button>
+      <mat-icon>
+        create
+      </mat-icon>
+    </button>
+    <button class="delete-button" mat-raised-button>
+      <mat-icon>
+        close
+      </mat-icon>
+    </button>
+  </div>
+</mat-list-option>

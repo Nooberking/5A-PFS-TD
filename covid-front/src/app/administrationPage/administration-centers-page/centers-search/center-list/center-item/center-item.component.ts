@@ -1,6 +1,7 @@
+import { CenterService } from './../../../../../shared/services/center.service';
 import { ReservationService } from './../../../../../reservationPage/reservation.service';
 import { VaccinationCenter } from './../../../../../shared/dto/VaccinationCenter';
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-center-item',
@@ -16,20 +17,21 @@ export class CenterItemComponent {
 
 
 
-  constructor(private reservationService: ReservationService) { }
+  constructor(
+    private reservationService: ReservationService,
+    private centerService: CenterService) { }
 
   confirmButton(): void{
     this.buttonConfirm = !this.buttonConfirm;
   }
 
   selectCenter(): void{
-    console.log("center selected");
-    console.log('name : ' + this.center.name);
+    this.centerService.modifyCenter(this.center);
+    this.centerService.changeMode({
+      name:'center-details'
+    });
   }
 
-  deleteCenter(): void{
-    console.log("center deleted");
-    console.log('name : ' + this.center.name);
-  }
+
 
 }

@@ -1,5 +1,6 @@
-import { CentersAddComponent } from './administration-centers-page/centers-add/centers-add.component';
-import { ReservationPageModule } from './../reservationPage/reservationPage.module';
+import { CenterDetailsDialogComponent } from './administration-centers-page/center-details/center-details-dialog/center-details-dialog.component';
+import { CenterDetailsComponent } from './administration-centers-page/center-details/center-details.component';
+import { CentersAddComponent } from './administration-centers-page/centers-search/centers-add/centers-add.component';
 import { CenterItemComponent } from './administration-centers-page/centers-search/center-list/center-item/center-item.component';
 import { CenterListComponent } from './administration-centers-page/centers-search/center-list/center-list.component';
 import { CenterSearchBarComponent } from './administration-centers-page/centers-search/center-searchBar/center-searchBar.component';
@@ -28,6 +29,8 @@ import { AdministrationMyCenterPageComponent } from './administration-my-center-
     CenterSearchBarComponent,
     CenterListComponent,
     CentersAddComponent,
+    CenterDetailsComponent,
+    CenterDetailsDialogComponent,
     CenterItemComponent
   ]
 })

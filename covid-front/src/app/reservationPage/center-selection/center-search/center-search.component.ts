@@ -1,3 +1,4 @@
+import { CenterService } from './../../../shared/services/center.service';
 import { Observable, Subscription } from 'rxjs';
 import { VaccinationCenter } from './../../../shared/dto/VaccinationCenter';
 import { ReservationService } from './../../reservation.service';
@@ -43,7 +44,7 @@ export class CenterSearchComponent implements OnDestroy {
    * @memberof CenterSearchComponent
    */
   centers?: VaccinationCenter[];
-  
+
   /**
    * Boolean for loading icon if the data have been requested but didn't come yet.
    *
@@ -63,11 +64,11 @@ export class CenterSearchComponent implements OnDestroy {
   /**
    * Creates an instance of CenterSearchComponent.
    *
-   * Injection dependance : Reservation service to get centers.
-   * @param {ReservationService} reservationService
+   * Injection dependance : center service to get centers.
+   * @param {CenterService} centerService
    * @memberof CenterSearchComponent
    */
-  constructor(private reservationService: ReservationService) { }
+  constructor(private centerService: CenterService) { }
 
   /**
    * Select the correct observable to get centers according to the type of request we want to
@@ -78,9 +79,9 @@ export class CenterSearchComponent implements OnDestroy {
    * @memberof CenterSearchComponent
    */
   selectObservableForCenters(request: string): Observable<VaccinationCenter[]> {
-    if(request == "*allCenters*") return this.reservationService.getAllCenters();
-    else if(this.searchOption == CenterSearchEnum.CITY) return this.reservationService.getCentersByCity(request);
-    else return this.reservationService.getCentersByName(request);
+    if(request == "*allCenters*") return this.centerService.getAllCenters();
+    else if(this.searchOption == CenterSearchEnum.CITY) return this.centerService.getCentersByCity(request);
+    else return this.centerService.getCentersByName(request);
 
   }
 

@@ -1,0 +1,42 @@
+.center-details-container{
+  display: block;
+
+}
+.title{
+  font-size: 2em;
+  color: #29398D;
+
+  line-height: 50px;
+}
+
+mat-form-field{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+.options-container{
+  display: flex;
+  justify-content: space-between;
+}
+
+.options-container button{
+  width: fit-content;
+  margin-right: 10px;
+}
+
+.get-users-center-button:hover{
+  background-color: #009ff2;
+  color: white;
+}
+
+.update-button:enabled:hover{
+  background-color: #43a446;
+  color: white;
+}
+
+.cancel-button:hover{
+  background-color: #ff4c1e;
+  color: white;
+}
+

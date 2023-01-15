@@ -11,7 +11,7 @@ export interface VaccinationCenter {
    * @type {number}
    * @memberof VaccinationCenter
    */
-  id: number,
+  id?: number,
   /**
    *
    *  Name of the vaccination center.

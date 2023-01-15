@@ -1,0 +1,19 @@
+<div class="user-div">
+  <mat-selection-list [multiple]="false">
+    <div class="role-title" mat-subheader>
+      {{role}}
+      <button mat-raised-button>
+        <mat-icon>
+          person_add
+        </mat-icon>
+        Ajouter
+      </button>
+    </div>
+    <div *ngIf="users && !loading">
+      <app-user-item *ngFor="let user of users" [userDetails]="user"></app-user-item>
+    </div>
+    <div class="spinner-container" *ngIf="loading">
+      <mat-spinner [diameter]="200"></mat-spinner>
+    </div>
+  </mat-selection-list>
+</div>

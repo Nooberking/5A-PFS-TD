@@ -1,4 +1,4 @@
-import { UnsavedChanges } from './../shared/guards/CanDesactivateGuard';
+import { UnsavedChanges } from '../shared/guards/CanDesactivate.guard';
 import { ReservationService } from './reservation.service';
 import { Subscription } from 'rxjs';
 import { Component, OnInit, OnDestroy, HostListener } from '@angular/core';

@@ -57,7 +57,7 @@ export class ReservationService {
    * @param {HttpClient} httpClient
    * @memberof ReservationService
    */
-  constructor(private httpClient: HttpClient,) { }
+  constructor(private httpClient: HttpClient) { }
 
   /**
    *

@@ -1,3 +1,7 @@
+import { ErrorInterceptor } from './interceptors/error.interceptor';
+import { BasicAuthInterceptor } from './interceptors/basic-auth.interceptor';
+import { UserItemComponent } from './components/user-list/user-item/user-item.component';
+import { UserListComponent } from './components/user-list/user-list.component';
 
 import { ToFillPipe } from './pipes/toFill.pipe';
 import { PercentagePipe } from './pipes/percentage.pipe';
@@ -8,7 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
@@ -20,6 +24,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatDialogModule } from '@angular/material/dialog';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 
@@ -52,6 +57,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
     MatDividerModule
   ],
   exports:[
@@ -69,11 +75,14 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     MatProgressSpinnerModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatDialogModule,
     MatCardModule,
 
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
+    UserListComponent,
+    UserItemComponent,
 
     PercentagePipe,
     ToFillPipe,
@@ -83,9 +92,15 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     HeaderComponent,
     FooterComponent,
     SidenavComponent,
+    UserListComponent,
+    UserItemComponent,
 
     PercentagePipe,
     ToFillPipe
+  ],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ]
 })
 export class SharedModule { }

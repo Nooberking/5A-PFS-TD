@@ -1,7 +1,7 @@
-import { ReservationService } from './../../../reservationPage/reservation.service';
+import { CenterService } from './../../../shared/services/center.service';
 import { Subscription, Observable } from 'rxjs';
 import { VaccinationCenter } from './../../../shared/dto/VaccinationCenter';
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-centers-search',
@@ -9,6 +9,8 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
   styleUrls: ['./centers-search.component.css']
 })
 export class CentersSearchComponent implements OnDestroy {
+
+
 /**
    * List of centers found.
    *
@@ -36,11 +38,11 @@ export class CentersSearchComponent implements OnDestroy {
   /**
    * Creates an instance of CenterSearchComponent.
    *
-   * Injection dependance : Reservation service to get centers.
-   * @param {ReservationService} reservationService
+   * Injection dependance : center service to get centers.
+   * @param {CenterService} centerService
    * @memberof CenterSearchComponent
    */
-  constructor(private reservationService: ReservationService) { }
+  constructor(private centerService: CenterService) { }
 
   /**
    * Select the correct observable to get centers according to the type of request we want to
@@ -51,8 +53,9 @@ export class CentersSearchComponent implements OnDestroy {
    * @memberof CenterSearchComponent
    */
   selectObservableForCenters(request: string): Observable<VaccinationCenter[]> {
-    if(request == "*allCenters*") return this.reservationService.getAllCenters();
-    else return this.reservationService.getCentersByName(request);
+    if(request == "*allCenters*") return this.centerService.getAllCenters();
+    else return this.centerService.getCentersByName(request);
+
   }
 
   /**

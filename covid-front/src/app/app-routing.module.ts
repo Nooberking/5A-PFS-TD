@@ -1,6 +1,7 @@
+import { AuthGuard } from './shared/guards/auth.guard';
 import { AdministrationPageComponent } from './administrationPage/administrationPage.component';
 import { LoginPageComponent } from './loginPage/loginPage.component';
-import { CanDesactivateGuard } from './shared/guards/CanDesactivateGuard';
+import { CanDesactivateGuard } from './shared/guards/CanDesactivate.guard';
 import { ReservationPageComponent } from './reservationPage/reservationPage.component';
 import { HomePageComponent } from './homePage/homePage.component';
 import { NgModule } from '@angular/core';
@@ -12,9 +13,10 @@ const routes: Routes = [
   { path:'login', component: LoginPageComponent},
   {
     path:'admin',
-    component: AdministrationPageComponent
+    component: AdministrationPageComponent,
+    canActivate: [AuthGuard]
   },
-  
+
   { path:'', redirectTo:'home', pathMatch: 'full'}
 ];
 
