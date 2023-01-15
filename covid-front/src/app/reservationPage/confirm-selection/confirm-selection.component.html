@@ -1,0 +1,34 @@
+<div id="section">
+  <h2> Récapitulatif de la réservation</h2>
+  <h3>Centre choisi</h3>
+  <div class="field">
+    <span>Nom du centre : {{reservation?.center?.name | toFill}}</span>
+    <span>Ville : {{reservation?.center?.city | toFill}}</span>
+  </div>
+
+  <h3>Date choisie</h3>
+  {{reservation?.date | date:'EEEE dd MMMM yyyy': undefined : 'fr' | toFill}}
+
+  <h3>Informations Personnelles</h3>
+  <div class="field">
+    <span>Nom : {{reservation?.patient?.lastName | toFill}}</span>
+    <span>Prénom : {{reservation?.patient?.firstName |toFill }}</span>
+    <span>email : {{reservation?.patient?.mail | toFill }}</span>
+  </div>
+  <button
+  class="previous-button"
+  color="primary"
+  mat-raised-button
+  matStepperPrevious>
+    Précédent
+  </button>
+  <button
+  color="primary"
+  id="confirm-button"
+  [disabled]=
+  "!(reservation?.center &&
+  reservation?.date &&
+  reservation?.patient )"
+  (click)="saveReservation()"
+  mat-raised-button>confirmer la réservation</button>
+</div>

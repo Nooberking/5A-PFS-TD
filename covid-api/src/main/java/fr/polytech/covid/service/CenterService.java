@@ -19,6 +19,7 @@ public class CenterService {
     public List<Center> getCenters(){
         return new ArrayList<>(centerRepository.findByOrderByNameAsc());
     }
+
     public List<Center> getCenters(String city){
         if (city == null || city.equals("")) return getCenters();
         return new ArrayList<>(centerRepository.findByCityContainsIgnoreCaseOrderByNameAsc(city));

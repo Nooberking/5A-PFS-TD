@@ -1,0 +1,87 @@
+<form [formGroup]="userForm" class="user-details-container">
+  <h2 class="title">Informations sur l'utilisateur</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Pseudo</mat-label>
+    <input
+    type="text"
+    formControlName="username"
+    matInput/>
+    <mat-error *ngIf="form['username'].errors && form['username'].errors['required']" >
+      Le pseudo est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input
+    type="text"
+    formControlName="lastName"
+    matInput/>
+    <mat-error *ngIf="form['lastName'].errors && form['lastName'].errors['required']">
+      Un nom de famille est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Prénom</mat-label>
+    <input
+    type="text"
+    formControlName="firstName"
+    matInput/>
+    <mat-error *ngIf="form['firstName'].errors && form['firstName'].errors['required']">
+      Un prénom est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Centre</mat-label>
+    <input
+    type="text"
+    formControlName="center"
+    readonly
+    matInput/>
+    <mat-error *ngIf="form['center'].errors && form['center'].errors['required']">
+      Le centre est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Mot de passe</mat-label>
+    <input
+    type="password"
+    formControlName="password"
+    matInput/>
+    <mat-error *ngIf="form['password'].errors && form['password'].errors['required']">
+      Le mot de passe est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Role</mat-label>
+    <input
+    type="text"
+    formControlName="role"
+    readonly
+    matInput/>
+    <mat-error *ngIf="form['role'].errors && form['role'].errors['required']">
+      Le role est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <div class="options-container">
+
+    <div>
+      <button class="cancel-button"  mat-raised-button>
+        Annuler
+      </button>
+
+      <button class="update-button"
+      mat-raised-button>
+        {{confirmButton}}
+      </button>
+
+    </div>
+
+  </div>
+</form>

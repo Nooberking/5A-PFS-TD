@@ -1,0 +1,14 @@
+#center-selection-container{
+  display: block;
+  text-align: center;
+  width: 90%;
+  margin-top: 30px;
+
+}
+
+h2 {
+  font-size: 2em;
+  color: #29398D;
+
+  line-height: 50px;
+}

@@ -1,0 +1,27 @@
+.center-item{
+  border-bottom: 1px solid grey;
+  cursor: default!important;
+}
+.modify-button{
+  margin-right: 10px;
+}
+
+.user-username{
+  font-weight: bolder;
+  color: #29398D;
+}
+
+.modify-button:hover{
+  background-color: #43a446;
+  color: white;
+}
+
+.delete-button:hover{
+  background-color: #ff4c1e;
+  color: white;
+}
+
+.item-container{
+  display:flex;
+  justify-content: space-between;
+}

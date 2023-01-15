@@ -1,0 +1,19 @@
+.center-div{
+  text-align: left;
+  margin-bottom: 30px;
+}
+.add-user:hover{
+  background-color: #009ff2;
+  color: white;
+}
+
+.role-title{
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5em;
+  color: #29398D;
+}
+
+.user-div{
+  margin-bottom: 40px;
+}

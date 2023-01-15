@@ -1,0 +1,30 @@
+mat-sidenav {
+  margin: 16px;
+  width: 200px;
+  border-right: none;
+  background: #002b5c;
+  color: white;
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+mat-sidenav-container{
+  height: calc(100vh - 65px);
+}
+
+.content {
+  min-height: calc(100vh - 110px);
+  border-radius: 10px;
+  margin: 16px;
+  margin-left: 32px;
+
+  padding-left: 10px;
+  padding-top: 10px;
+
+}
+
+.container-center{
+  display: flex;
+  justify-content: center;
+}
+

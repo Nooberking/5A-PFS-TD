@@ -1,0 +1,18 @@
+.center-item{
+  border-bottom: 1px solid grey;
+  cursor: default!important;
+}
+
+.center-name{
+  font-weight: bolder;
+  color: #29398D;
+}
+
+.center-city{
+  color: rgb(100, 99, 99);
+}
+
+.item-container{
+  display:flex;
+  justify-content: space-between;
+}

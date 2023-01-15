@@ -1,0 +1,31 @@
+
+    <h4 class="name">Bienvenue {{userDetails? userDetails.firstName : ""}}</h4>
+    <p class="role"> Role : {{(userDetails? userDetails.role.name : "" ) | roleName}}</p>
+    <mat-divider></mat-divider>
+    <button mat-button class="menu-button">
+      <mat-icon>home</mat-icon>
+      <span>Accueil</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>location_city</mat-icon>
+      <span>Centres</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>local_hospital</mat-icon>
+      <span>Mon centre</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>event</mat-icon>
+      <span>Planning</span>
+    </button>
+    <button mat-button class="menu-button">
+      <mat-icon>settings</mat-icon>
+      <span>Paramètres</span>
+    </button>
+    <mat-divider></mat-divider>
+    <button mat-button (click)="logout()" class="menu-button">
+      <mat-icon>exit_to_app</mat-icon>
+    <span>Se déconnecter</span>
+    </button>
+
+

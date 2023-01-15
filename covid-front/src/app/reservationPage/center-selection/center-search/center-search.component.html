@@ -1,0 +1,3 @@
+<app-center-searchBar [searchOption]="searchOption" (centersRequestEvent)="getCenters($event)"></app-center-searchBar>
+<button color="primary" (click)="undoSearchSelect()" mat-raised-button>Précedent</button>
+<app-center-list [centers]="centers" [loading]="loading"></app-center-list>

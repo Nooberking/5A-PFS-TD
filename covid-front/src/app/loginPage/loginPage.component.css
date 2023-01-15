@@ -1,0 +1,22 @@
+.loginForm-container{
+  margin: 20vh;
+}
+
+.login-card{
+  min-width: 300px;
+}
+
+.center-content{
+  display: flex;
+  justify-content: center;
+}
+.card-header{
+  margin-bottom: 30px;
+  color: #3f51b5;
+  font-weight: bold;
+  font-size: 24px;
+}
+
+.confirm-button{
+  margin-top: 30px;
+}

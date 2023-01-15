@@ -14,6 +14,9 @@ databaseChangeLog:
                   name: last_name
                   value: user
               - column:
+                  name: phone_number
+                  value: "0606060606"
+              - column:
                   name: mail
                   value: test.user@poltechMail.com
               - column:

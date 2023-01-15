@@ -1,0 +1,49 @@
+<form class="center-details-container">
+  <h2 class="title">Informations sur le centre</h2>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Nom</mat-label>
+    <input
+    type="text"
+    [formControl]="nameFormControl"
+    matInput/>
+    <mat-error *ngIf="nameFormControl.hasError('required')">
+      Le nom du centre est requis.
+    </mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Ville</mat-label>
+    <input
+    type="text"
+    [formControl]="cityFormControl"
+    matInput/>
+    <mat-error *ngIf="cityFormControl.hasError('required')">
+      Une ville est requise pour le centre.
+    </mat-error>
+  </mat-form-field>
+
+  <div class="options-container">
+    <button class="get-users-center-button" (click)="openUsersPage()" mat-raised-button>
+      <mat-icon>
+        group
+      </mat-icon>
+      utilisateurs
+    </button>
+
+    <div>
+      <button class="cancel-button" (click)="returnSearchMode()" mat-raised-button>
+        Annuler
+      </button>
+
+      <button class="update-button"
+      [disabled]="nameFormControl.hasError('required') || cityFormControl.hasError('required')"
+      (click)="saveCenter()"
+      mat-raised-button>
+        {{confirmButton}}
+      </button>
+
+    </div>
+
+  </div>
+</form>

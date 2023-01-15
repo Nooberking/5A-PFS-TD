@@ -1,0 +1,11 @@
+<div id="center-selection-container">
+  <div *ngIf="mode.name == 'search'">
+    <h2>Selectionner un centre</h2>
+    <app-centers-search></app-centers-search>
+  </div>
+
+  <app-center-details *ngIf="mode.name == 'center-details'"></app-center-details>
+  <div *ngIf="mode.name == 'user-details'">
+    <app-center-users-list ></app-center-users-list>
+  </div>
+

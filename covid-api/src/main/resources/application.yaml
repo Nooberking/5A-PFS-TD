@@ -1,4 +1,6 @@
 spring:
+  main:
+    allow-bean-definition-overriding: true
   datasource:
     url: jdbc:postgresql://localhost:5432/covid-db
     username: test_user
@@ -10,4 +12,8 @@ spring:
       ddl-auto: update
   liquibase:
     change-log: db/changelog/db.changelog-master.yaml
-
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
