@@ -136,7 +136,22 @@ public class EmployeeService implements UserDetailsService {
                 center.getId()
         );
     }
+    public Employee loadEmployee(String authInfos) {
+        String username = getUsername(authInfos);
+        Optional<Employee> optionalEmployee = employeeRepository.findByUsername(username);
+        if(optionalEmployee.isPresent()){
+            return optionalEmployee.get();
+        }else {
+            throw new UsernameNotFoundException("L'utilisateur " + username + " n'existe pas.");
+        }
+    }
 
+    private String getUsername(String authInfos){
+        String encodedAuthInfos = authInfos.replace("Basic ","");
+        String decodedAuthInfos = new String(Base64.getDecoder().decode(encodedAuthInfos));
+        return decodedAuthInfos.split(":")[0];
+
+    }
 
     @Override
     public UserDetails loadUserByUsername(final String username)
