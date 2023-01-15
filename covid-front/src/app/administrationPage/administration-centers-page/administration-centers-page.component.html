@@ -5,3 +5,7 @@
   </div>
 
   <app-center-details *ngIf="mode.name == 'center-details'"></app-center-details>
+  <div *ngIf="mode.name == 'user-details'">
+    <app-center-users-list ></app-center-users-list>
+  </div>
+

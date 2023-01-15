@@ -1,6 +1,6 @@
 import { environment } from './../../../environments/environment';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { UserDetails } from './../dto/UserDetails';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -27,14 +27,21 @@ constructor(
  }
 
  login(username: string, password: string) {
-  return this.http.post<any>(`${environment.apiAdminUrl}/users/authenticate`, { username, password })
-      .pipe(map(user => {
+
+
+  return this.http.post<any>(`${environment.apiAdminUrl}/auth`,null,{
+    headers: new HttpHeaders({Authorization: `Basic ${this.basicAuthHeader(username, password)}`})
+  }).pipe(map(user => {
           // store user details and basic auth credentials in local storage to keep user logged in between page refreshes
-          user.authdata = window.btoa(username + ':' + password);
+          user.authdata = this.basicAuthHeader(username, password);
           localStorage.setItem('user', JSON.stringify(user));
           this.userSubject.next(user);
           return user;
       }));
+}
+basicAuthHeader(username: string, password: string): string {
+  return window.btoa(`${username}:${password}`);
+
 }
 
 logout() {

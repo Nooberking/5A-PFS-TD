@@ -1,3 +1,5 @@
+import { UserDetailsComponent } from './components/user-details/user-details.component';
+import { RoleNamePipe } from './pipes/roleName.pipe';
 import { ErrorInterceptor } from './interceptors/error.interceptor';
 import { BasicAuthInterceptor } from './interceptors/basic-auth.interceptor';
 import { UserItemComponent } from './components/user-list/user-item/user-item.component';
@@ -83,9 +85,11 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     SidenavComponent,
     UserListComponent,
     UserItemComponent,
+    UserDetailsComponent,
 
     PercentagePipe,
     ToFillPipe,
+    RoleNamePipe,
 
   ],
   declarations: [
@@ -94,9 +98,11 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
     SidenavComponent,
     UserListComponent,
     UserItemComponent,
+    UserDetailsComponent,
 
     PercentagePipe,
-    ToFillPipe
+    ToFillPipe,
+    RoleNamePipe
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: BasicAuthInterceptor, multi: true },

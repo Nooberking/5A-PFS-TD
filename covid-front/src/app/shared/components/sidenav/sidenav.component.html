@@ -1,6 +1,6 @@
 
-    <h4 class="name">Bienvenue prénom</h4>
-    <p class="role">Rôle BDD</p>
+    <h4 class="name">Bienvenue {{userDetails? userDetails.firstName : ""}}</h4>
+    <p class="role"> Role : {{(userDetails? userDetails.role.name : "" ) | roleName}}</p>
     <mat-divider></mat-divider>
     <button mat-button class="menu-button">
       <mat-icon>home</mat-icon>
@@ -23,7 +23,7 @@
       <span>Paramètres</span>
     </button>
     <mat-divider></mat-divider>
-    <button mat-button class="menu-button">
+    <button mat-button (click)="logout()" class="menu-button">
       <mat-icon>exit_to_app</mat-icon>
     <span>Se déconnecter</span>
     </button>

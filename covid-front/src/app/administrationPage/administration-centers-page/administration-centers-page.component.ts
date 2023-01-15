@@ -20,6 +20,7 @@ export class AdministrationCentersPageComponent implements OnInit {
       this.mode = mode;
     })
 
+
   }
 
 }

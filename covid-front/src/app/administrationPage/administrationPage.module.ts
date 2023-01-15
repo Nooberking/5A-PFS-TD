@@ -1,3 +1,4 @@
+import { CenterUsersListComponent } from './administration-centers-page/center-users-list/center-users-list.component';
 import { CenterDetailsDialogComponent } from './administration-centers-page/center-details/center-details-dialog/center-details-dialog.component';
 import { CenterDetailsComponent } from './administration-centers-page/center-details/center-details.component';
 import { CentersAddComponent } from './administration-centers-page/centers-search/centers-add/centers-add.component';
@@ -30,6 +31,7 @@ import { AdministrationMyCenterPageComponent } from './administration-my-center-
     CenterListComponent,
     CentersAddComponent,
     CenterDetailsComponent,
+    CenterUsersListComponent,
     CenterDetailsDialogComponent,
     CenterItemComponent
   ]

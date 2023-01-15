@@ -37,6 +37,7 @@
           color="primary"
           [disabled]="loginFormControl.hasError('required')
           || passwordFormControl.hasError('required')"
+          (click)="onTestLogin()"
           mat-raised-button>
             Se connecter
           </button>

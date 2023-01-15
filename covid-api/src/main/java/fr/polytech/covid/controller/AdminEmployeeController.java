@@ -22,10 +22,12 @@ public class AdminEmployeeController {
     @GetMapping("/employees")
     public List<Employee> getEmployees(){ return this.employeeService.getEmployees(); }
 
-    @GetMapping("/administrators")
-    public List<Employee> getAdministrators(){ return this.employeeService.getAdministrators(); }
+    @PostMapping("/administrators")
+    public List<Employee> getAdministratorsByCenter(@RequestBody Center center){
+        return this.employeeService.getAdministratorsByCenter(center);
+    }
 
-    @GetMapping("/doctors")
+    @PostMapping("/doctors")
     public List<Employee> getDoctorsByCenter(@RequestBody Center center){
         return  this.employeeService.getDoctorsByCenter(center);
     }

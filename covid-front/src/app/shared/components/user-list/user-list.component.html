@@ -1,8 +1,8 @@
 <div class="user-div">
   <mat-selection-list [multiple]="false">
     <div class="role-title" mat-subheader>
-      {{role}}
-      <button mat-raised-button>
+      {{role | roleName}}
+      <button class="add-user" (click)="onUserDetails()"  mat-raised-button>
         <mat-icon>
           person_add
         </mat-icon>

@@ -94,6 +94,10 @@ export class CenterDetailsComponent implements OnInit, OnDestroy {
     }));
   }
 
+  openUsersPage(){
+    this.centerService.changeMode({name: 'user-details'});
+  }
+
   ngOnDestroy(): void {
     this.subs.forEach(sub => sub.unsubscribe());
   }

@@ -126,8 +126,11 @@ public class EmployeeService implements UserDetailsService {
         return employees;
     }
 
-    public List<Employee> getAdministrators(){
-        return this.employeeRepository.findByRole_Id(this.adminRole.getId());
+    public List<Employee> getAdministratorsByCenter(Center center){
+        return this.employeeRepository.findDistinctByRole_IdAndCenter_Id(
+                this.adminRole.getId(),
+                center.getId()
+        );
     }
 
     public List<Employee> getDoctorsByCenter(Center center){
